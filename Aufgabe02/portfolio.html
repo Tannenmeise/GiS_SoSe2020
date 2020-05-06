@@ -11,7 +11,9 @@
     <header>
         <nav>
             <a href="https://tannenmeise.github.io/GiS_SoSe2020/Aufgabe02/portfolio.html">Portfolio </a>
+
             <a href="https://tannenmeise.github.io/GiS_SoSe2020/Aufgabe02/about_me.html">About me </a>
+            
             <a href="https://tannenmeise.github.io/GiS_SoSe2020/Aufgabe02/contact.html">Contact</a>
         </nav>
         <h1>
@@ -24,18 +26,18 @@
         <div>
             <h3>Gliederung:</h3>
             <ol>
-                <li>Zeichnungen</li>
-                <li>3D Modellierungen</li>
-                <li>3D Animationen</li>
-                <li>Musik</li>
-                <li>Gedichte</li>
+                <li><a href="#zeichnungen">Zeichnungen</a></li>
+                <li><a href="#modellierungen">3D Modellierungen</a></li>
+                <li><a href="#animationen">3D Animationen</a></li>
+                <li><a href="#musik">Musik</a></li>
+                <li><a href="#gedichte">Gedichte</a></li>
             </ol>
         </div>
         <br>
         <hr>
         <br>
         <div>
-            <h3>Zeichnungen</h3>
+            <h3 id="zeichnungen">Zeichnungen</h3>
             <br>
             <img src="bild_auge.png" alt="Zeichnung von einem Auge"></img>
             <img src="bild_charaktere.png" alt="Zeichnung zwei Charakteren"></img>
@@ -44,7 +46,7 @@
         <hr>
         <br>
         <div>
-            <h3>3D Modellierungen</h3>
+            <h3 id="modellierungen">3D Modellierungen</h3>
             <br>
             <img src="bild_objekte.png" alt="Verschiedene 3D-Objekte"></img>
         </div>
@@ -52,25 +54,33 @@
         <hr>
         <br>
         <div>
-            <h3>3D Animationen</h3>
+            <h3 id="animationen">3D Animationen</h3>
             <br>
-            <vid src="video_flummi.mp4" alt="Flummi Animation"></video>
-            <vid src="video_dominosteine.mp4" alt="Fallende Dominosteine Animation"></video>
+            <video width="320" height="240" controls>
+                <source src="video_flummi.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <video width="320" height="240" controls>
+                <source src="video_dominosteine.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
         <br>
         <hr>
         <br>
         <div>
-            <h3>Musik</h3>
+            <h3 id="musik">Musik</h3>
             <br>
-            <audio src="" alt="musik_sehrschlecht.mp3"></audio>
+            <audio controls>
+                <source src="musik_sehrschlecht.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
         </div>
         <br>
         <hr>
         <br>
         <div>
-            <h3>Gedichte</h3>
-            <br>
+            <h3 id="gedichte">Gedichte</h3>
             <h4>You are not alone</h4>
             <p>
                 A shadow swept across your peripherals<br>
