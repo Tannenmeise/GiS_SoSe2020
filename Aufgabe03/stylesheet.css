@@ -44,14 +44,14 @@ a:hover {
     width: 100%
 }
 
-#socials {
+.socials {
     position: absolute;
     left: 0;
     top: 50%;
     width: 100%
 }
 
-#socials:hover {
+.socials:hover {
     opacity: 80%;
 }
 
@@ -89,7 +89,7 @@ p {
 
 /* About me */
 
-#introduction {
+.info {
     background-color: rgb(255, 253, 246);
     width: 600px;
     border-radius: 6px;
@@ -100,7 +100,7 @@ p {
     border-radius: 10px;
 }
 
-#introduction img {
+#info img {
     border-radius: 20px;
 }
 
