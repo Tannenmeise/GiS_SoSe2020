@@ -1,0 +1,129 @@
+#navigation {
+    color: white;
+    background-color: rgb(112, 100, 72);
+    width: 240px;
+    top: 0px;
+    margin-left: 68%;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 1px;
+    position: fixed;
+    z-index: 2;
+}
+
+a:link, a:active, a:visited {
+    color: rgb(231, 214, 189);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(70, 170, 84);
+}
+
+#current {
+    color: white;
+}
+
+#circle {
+    background-color: rgb(29, 114, 40);
+    color: rgb(253, 247, 238);
+    margin-top: -350px;
+    margin-left: 16%;
+    width: 850px;
+    height: 750px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+#circle h1 {
+    font-size: 200px;
+    letter-spacing: -0.1em;
+    position: absolute;
+    left: 0;
+    top: -15%;
+    width: 100%
+}
+
+#socials {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%
+}
+
+#socials:hover {
+    opacity: 80%;
+}
+
+body {
+    background-image: url(bg.png);
+    color: rgb(22, 21, 19);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#gliederung {
+    background-color: rgb(112, 100, 72);
+    width: 240px;
+    border-radius: 6px;
+    padding: 1px;
+    margin-left: 40%;
+    margin-top: 10px;
+}
+
+h3 {
+    background-color: rgb(112, 100, 72);
+    border-radius: 4px;
+    padding: 2px;
+    color: white
+}
+
+#zeichnungen, #modellierungen, #animationen, #musik {
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+p {
+    color: rgb(29, 114, 40);
+}
+
+/* About me */
+
+#introduction {
+    background-color: rgb(255, 253, 246);
+    width: 600px;
+    border-radius: 6px;
+    padding: 1px;
+    margin-left: 25.5%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+#introduction img {
+    border-radius: 20px;
+}
+
+/* contact */
+
+#fname, #lname, #mail, #msge {
+    background: white;
+    border: none;
+    font-size: 16px;
+    width: 250px;
+    margin-top: 5px;
+}
+
+#msge {
+    padding-bottom: 32px;
+}
+
+#submit {
+    background-color: rgb(29, 114, 40);
+    color: white;
+    font-weight: bold;
+    width: 80px;
+    padding: 10px;
+    padding-left: 5px;
+    margin-top: 10px;
+}
