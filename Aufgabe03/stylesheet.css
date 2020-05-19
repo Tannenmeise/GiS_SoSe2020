@@ -27,7 +27,7 @@ a:hover {
 #circle {
     background-color: rgb(29, 114, 40);
     color: rgb(253, 247, 238);
-    margin-top: -340px;
+    margin-top: -470px;
     height: 750px;
     border-radius: 50%;
     text-align: center;
@@ -36,16 +36,16 @@ a:hover {
 #circle h1 {
     font-size: 200px;
     letter-spacing: -0.1em;
-    position: absolute;
+    position: relative;
     left: 0;
-    top: -18%;
+    top: 46%;
     width: 100%
 }
 
 .socials {
-    position: absolute;
+    position: relative;
     left: 0;
-    top: 48%;
+    top: 34%;
     width: 100%
 }
 
