@@ -1,83 +1,3 @@
-/* tablet*/
-@media screen and (min-device-width: 600px) and (max-device-width: 1024px) {
-
-    #banner {
-        width: 99%;
-    }
-
-    body {
-        background-image: none;
-        background-color: rgb(255, 249, 246);
-    }
-
-    #home {
-        margin-left: 84%;
-    }
-
-    #einkaufstasche {
-        margin-left: 91%;
-    }
-
-    #seitenleiste {
-        margin-top: 13%;
-        width: 13.5%;
-    }
-
-    .artikel {
-        margin-top: 14%;
-        width: 70%;
-    }
-
-    .preis {
-        color: black;
-    }
-    
-    .reduziert {
-        color: black;
-    }
-}
-
-/* smartphone */
-@media screen and (max-device-width: 600px) {
-
-    #banner {
-        height: 5.5%;
-        width: 99%;
-    }
-
-    body {
-        width: 20%;
-        background-image: none;
-        background-color: rgb(255, 249, 246);
-    }
-
-    .artikel {
-        margin-top: 38%;
-        margin-left: 46%;
-        width: 140%;
-    }
-
-    #seitenleiste {
-        margin-top: 19%;
-    }
-
-    #home {
-        margin-left: 80%;
-    }
-
-    #einkaufstasche {
-        margin-left: 89%;
-    }
-
-    .preis {
-        color: black;
-    }
-    
-    .reduziert {
-        color: black;
-    }
-}
-
 body {
     width: 1024px;
     background-image: url(bg.png);
@@ -213,4 +133,95 @@ nav h4 {
     margin-top: 20%;
     margin-left: 39%;
     font-size: large;
+}
+
+/* tablet*/
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+
+    #banner {
+        width: 99%;
+    }
+
+    body {
+        background-image: none;
+        background-color: rgb(255, 249, 246);
+    }
+
+    body #home {
+        margin-left: 82%;
+    }
+
+    #einkaufstasche {
+        margin-left: 91%;
+    }
+
+    #seitenleiste {
+        margin-top: 13%;
+        width: 13.5%;
+    }
+
+    .artikel {
+        margin-top: 14%;
+        margin-left: 25%;
+        width: 70%;
+    }
+
+    .preis {
+        color: black;
+    }
+    
+    .reduziert {
+        color: black;
+    }
+}
+
+/* smartphone */
+@media screen and (max-width: 600px) {
+
+    #banner {
+        height: 5.5%;
+        width: 91%;
+    }
+
+    #banner h1 {
+        font-size: 28px;
+    }
+
+    body {
+        margin-left: 0px;
+        background-image: none;
+        background-color: rgb(255, 249, 246);
+    }
+
+    .artikel {
+        margin-top: 22%;
+        margin-left: 26%;
+        width: 100%;
+    }
+
+    #seitenleiste {
+        margin-top: 16%;
+        margin-left: -5%;
+        width: 18%;
+    }
+
+    #home {
+        margin-left: 67%;
+        margin-top: -2%;
+        transform: scale(0.8);
+    }
+
+    #einkaufstasche {
+        margin-left: 79%;
+        margin-top: -2%;
+        transform: scale(0.8);
+    }
+
+    .preis {
+        color: black;
+    }
+    
+    .reduziert {
+        color: black;
+    }
 }
