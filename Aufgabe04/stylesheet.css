@@ -1,0 +1,216 @@
+/* tablet*/
+@media screen and (min-device-width: 600px) and (max-device-width: 1024px) {
+
+    #banner {
+        width: 99%;
+    }
+
+    body {
+        background-image: none;
+        background-color: rgb(255, 249, 246);
+    }
+
+    #home {
+        margin-left: 84%;
+    }
+
+    #einkaufstasche {
+        margin-left: 91%;
+    }
+
+    #seitenleiste {
+        margin-top: 13%;
+        width: 13.5%;
+    }
+
+    .artikel {
+        margin-top: 14%;
+        width: 70%;
+    }
+
+    .preis {
+        color: black;
+    }
+    
+    .reduziert {
+        color: black;
+    }
+}
+
+/* smartphone */
+@media screen and (max-device-width: 600px) {
+
+    #banner {
+        height: 5.5%;
+        width: 99%;
+    }
+
+    body {
+        width: 20%;
+        background-image: none;
+        background-color: rgb(255, 249, 246);
+    }
+
+    .artikel {
+        margin-top: 38%;
+        margin-left: 46%;
+        width: 140%;
+    }
+
+    #seitenleiste {
+        margin-top: 19%;
+    }
+
+    #home {
+        margin-left: 80%;
+    }
+
+    #einkaufstasche {
+        margin-left: 89%;
+    }
+
+    .preis {
+        color: black;
+    }
+    
+    .reduziert {
+        color: black;
+    }
+}
+
+body {
+    width: 1024px;
+    background-image: url(bg.png);
+    background-attachment: fixed;
+    font-family: Arial;
+    margin: auto;
+}
+
+#home {
+    position: fixed;
+    margin-left: 70%;
+    padding: 10px;
+    z-index: 2;
+}
+
+#einkaufstasche {
+    position: fixed;
+    margin-left: 74.5%;
+    padding: 10px;
+    z-index: 2;
+}
+
+#home:hover, #einkaufstasche:hover {
+    transform: scale(1.2);
+}
+
+.kaufen:hover {
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 50%, 100% {
+        transform: scale(1);
+    }
+    25%, 75% {
+        transform: scale(1.1);
+    }
+}
+
+#banner {
+    position: fixed;
+    background-color: white;
+    width: 1024px;
+    height: 65px;
+    border-radius: 20px;
+}
+
+#banner, #seitenleiste {
+    border-left: 8px solid rgb(245, 214, 194);
+    border-bottom: 8px solid rgb(245, 214, 194);
+    z-index: 1;
+}
+
+#banner h1 {
+    margin-top: 0.8%;
+    margin-left: 1.5%;
+    position: fixed;
+    font-size: 40px;
+    color: rgb(255, 199, 176);
+    text-shadow: 1px  1px 1px black,
+                 1px -1px 1px black,
+                 -1px  1px 1px black,
+                 -1px -1px 1px black;
+}
+
+#banner h1 span {
+    letter-spacing: -0.1em;
+}
+
+#seitenleiste {
+    position: fixed;
+    border-radius: 20px;
+    background-color: white;
+    margin-right: 80%;
+    margin-top: 10%;
+    padding: 30px 35px 20px 25px;
+}
+
+nav li {
+    font-size: 15px;
+    margin-left: -10px;
+    margin-bottom: 2px;
+}
+
+nav h4 {
+    margin-top: -3px;
+}
+
+.artikel {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 850px;
+}
+
+.artikel div {
+    background-color: white;
+    width: 240px;
+    height: 240px;
+    padding-top: 10px;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2px solid rgb(255, 199, 176);
+}
+
+.artikel img {
+    border-radius: 60px;
+}
+
+.artikel p {
+    margin-top: 7%;
+    line-height: 7px;
+}
+
+.beschreibung {
+    font-size: 12px;
+}
+
+.preis {
+    color: rgb(0, 175, 0);
+}
+
+.reduziert {
+    color: rgb(255, 49, 22);
+}
+
+#wowie {
+    position: fixed;
+    margin-top: 20%;
+    margin-left: 39%;
+    font-size: large;
+}
