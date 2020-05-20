@@ -24,7 +24,7 @@ body {
     transform: scale(1.2);
 }
 
-.kaufen:hover {
+input[type="image"]:hover {
     animation: pulse 5s infinite;
 }
 
@@ -51,7 +51,7 @@ body {
     z-index: 1;
 }
 
-#banner h1 {
+#banner > h1 {
     margin-top: 0.8%;
     margin-left: 1.5%;
     position: fixed;
@@ -76,9 +76,9 @@ body {
     padding: 30px 35px 20px 25px;
 }
 
-nav li {
+ul * {
     font-size: 15px;
-    margin-left: -10px;
+    margin-left: -5px;
     margin-bottom: 2px;
 }
 
@@ -116,15 +116,15 @@ nav h4 {
     line-height: 7px;
 }
 
-.beschreibung {
+p + .beschreibung {
     font-size: 12px;
 }
 
-.preis {
+p ~ .preis {
     color: rgb(0, 175, 0);
 }
 
-.reduziert {
+p ~ .reduziert {
     color: rgb(255, 49, 22);
 }
 
