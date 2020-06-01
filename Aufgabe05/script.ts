@@ -2,7 +2,7 @@
 interface Artikel {
     name: string;
     beschreibung: string;
-    preis: string;
+    preis: number;
     bild: string;
 }
 
@@ -10,7 +10,7 @@ interface Artikel {
 let new01: Artikel = {
     name: "Graue rundliche Katze",
     beschreibung: "Die Augen glänzen etwas",
-    preis: "4,99 €",
+    preis: 4.99,
     bild: "figurA.png"
 };
 
@@ -18,14 +18,14 @@ let new01: Artikel = {
 let sale01: Artikel = {
     name: "unfertige Katzen-Figur",
     beschreibung: "(verflucht!)",
-    preis: "6,66 €",
+    preis: 6.66,
     bild: "figurB.png"
 };
 
 let sale02: Artikel = {
     name: "unfertige Katzen-Figur 2",
     beschreibung: "Eine schlafende Katze (nicht verflucht)",
-    preis: "2,69 €",
+    preis: 2.69,
     bild: "figurC.png"
 };
 
@@ -33,63 +33,63 @@ let sale02: Artikel = {
 let figur01: Artikel = {
     name: "Schleich Katze laufend",
     beschreibung: "Eine laufende Katze",
-    preis: "11,99 €",
+    preis: 11.99,
     bild: "figur1.png"
 };
 
 let figur02: Artikel = {
     name: "Schleich Katze stehend",
     beschreibung: "Eine stehende Katze",
-    preis: "9,99 €",
+    preis: 9.99,
     bild: "figur2.png"
 };
 
 let figur03: Artikel = {
     name: "Schleich Katze sitzend",
     beschreibung: "Eine sitzende Katze",
-    preis: "9,99 €",
+    preis: 9.99,
     bild: "figur3.png"
 };
 
 let figur04: Artikel = {
     name: "Schleich Katze putzend",
     beschreibung: "Eine sich putzende Katze",
-    preis: "6,99 €",
+    preis: 6.99,
     bild: "figur4.png"
 };
 
 let figur05: Artikel = {
     name: "Schleich Katze streckend",
     beschreibung: "Eine sich streckende Katze",
-    preis: "6,99 €",
+    preis: 6.99,
     bild: "figur5.png"
 };
 
 let figur06: Artikel = {
     name: "Schleich spielende Kätzchen",
     beschreibung: "Kätzchen, die spielen",
-    preis: "8,99 €",
+    preis: 8.99,
     bild: "figur6.png"
 };
 
 let figur07: Artikel = {
     name: "Schleich spielende Kätzchen 2",
     beschreibung: "schon wieder",
-    preis: "8,99 €",
+    preis: 8.99,
     bild: "figur7.png"
 };
 
 let figur08: Artikel = {
     name: "Schleich Maine-Coon-Katze",
     beschreibung: "Eine stehende Langhaarkatze",
-    preis: "3,99 €",
+    preis: 3.99,
     bild: "figur8.png"
 };
 
 let figur09: Artikel = {
     name: "Schleich schauende Katze",
     beschreibung: "[originelle Beschreibung]",
-    preis: "3,99 €",
+    preis: 3.99,
     bild: "figur9.png"
 };
 
@@ -97,14 +97,14 @@ let figur09: Artikel = {
 let pluesch01: Artikel = {
     name: "Plüsch-Katzen-Anhänger",
     beschreibung: "Mit Reißverschluss!",
-    preis: "4,99 €",
+    preis: 4.99,
     bild: "pluesch1.png"
 };
 
 let pluesch02: Artikel = {
     name: "FurReal friends Samtpfötchen",
     beschreibung: "Schläft schon seit Jahren. Funktioniert noch!",
-    preis: "99,99 €",
+    preis: 99.99,
     bild: "pluesch2.png"
 };
 
@@ -112,7 +112,7 @@ let pluesch02: Artikel = {
 let sonstiges01: Artikel = {
     name: "Katzen-Kerze",
     beschreibung: "Echte Bienenwachs-Kerze in Katzenform",
-    preis: "14,99 €",
+    preis: 14.99,
     bild: "kerze.png"
 };
 //#endregion
@@ -150,7 +150,7 @@ for (let i: number = 0; i < newArtikel.length; i++) {
 
     //preis
     let preisP: HTMLParagraphElement = document.createElement("p");
-    preisP.innerHTML = newArtikel[i].preis;
+    preisP.innerHTML = newArtikel[i].preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
     preisP.className = "preis";
     document.getElementById("neuheitNr" + i)?.appendChild(preisP);
 
@@ -187,7 +187,7 @@ for (let i: number = 0; i < saleArtikel.length; i++) {
 
     //preis
     let preisP: HTMLParagraphElement = document.createElement("p");
-    preisP.innerHTML = saleArtikel[i].preis;
+    preisP.innerHTML = saleArtikel[i].preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
     preisP.className = "reduziert";
     document.getElementById("angebotNr" + i)?.appendChild(preisP);
 
@@ -224,7 +224,7 @@ for (let i: number = 0; i < figurArtikel.length; i++) {
 
     //preis
     let preisP: HTMLParagraphElement = document.createElement("p");
-    preisP.innerHTML = figurArtikel[i].preis;
+    preisP.innerHTML = figurArtikel[i].preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
     preisP.className = "preis";
     document.getElementById("figurNr" + i)?.appendChild(preisP);
 
@@ -261,7 +261,7 @@ for (let i: number = 0; i < plueschArtikel.length; i++) {
 
     //preis
     let preisP: HTMLParagraphElement = document.createElement("p");
-    preisP.innerHTML = plueschArtikel[i].preis;
+    preisP.innerHTML = plueschArtikel[i].preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
     preisP.className = "preis";
     document.getElementById("plueschNr" + i)?.appendChild(preisP);
 
@@ -298,7 +298,7 @@ for (let i: number = 0; i < sonstigesArtikel.length; i++) {
 
     //preis
     let preisP: HTMLParagraphElement = document.createElement("p");
-    preisP.innerHTML = sonstigesArtikel[i].preis;
+    preisP.innerHTML = sonstigesArtikel[i].preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
     preisP.className = "preis";
     document.getElementById("sonstigesNr" + i)?.appendChild(preisP);
 
