@@ -1,6 +1,5 @@
-namespace Aufgabe05 {
+namespace Aufgabe06 {
 
-    //#region Artikel
     interface Artikel {
         name: string;
         beschreibung: string;
@@ -133,9 +132,7 @@ namespace Aufgabe05 {
         bild: "kerze.png",
         kategorie: "sonstiges"
     };
-    //#endregion
 
-    // Arrays nach Kategorie
     const newArtikel: Artikel[] = [new01];
     const saleArtikel: Artikel[] = [sale01, sale02];
     const figurArtikel: Artikel[] = [figur01, figur02, figur03, figur04, figur05, figur06, figur07, figur08, figur09];
@@ -184,6 +181,78 @@ namespace Aufgabe05 {
             kaufen.src = "4_bild_einkaufstasche_klein.png";
             kaufen.alt = "kaufen";
             document.getElementById(artikelArray[i].kategorie + i)?.appendChild(kaufen);
+            kaufen.addEventListener("click", handleKaufenClick); // für Aufg.6
         }
     }
+
+    // Aufgabe 06-01 Anfang
+
+    let summe: number = 0;
+    let anzahl: number = 0;
+
+    function handleKaufenClick(_event: Event): void {
+
+        let clickedObject: HTMLElement = <HTMLElement>_event.target;
+
+        // Anzahl berechnen & anzeigen
+        anzahl++;
+        document.getElementById("anzahl")!.innerHTML = anzahl.toString();
+        document.getElementById("anzahl")!.setAttribute("style", "visibility: visible");
+
+        // Summe berechnen & ausgeben
+        let summeRechnen: string = clickedObject!.previousSibling?.firstChild?.nodeValue!;
+        summeRechnen = summeRechnen.replace( /,/, "." );
+        summe += parseFloat(summeRechnen);
+        summeRechnen = summe.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        console.log(summeRechnen);
+
+    }
+    // Aufgabe 06-01 Ende
+
+    // Aufgabe 06-02 Anfang
+
+    document.getElementById("sortAlles")?.addEventListener("click", handleChooseCategory);
+    document.getElementById("sortNeuheiten")?.addEventListener("click", handleChooseCategory);
+    document.getElementById("sortAngebote")?.addEventListener("click", handleChooseCategory);
+    document.getElementById("sortFiguren")?.addEventListener("click", handleChooseCategory);
+    document.getElementById("sortPlueschtiere")?.addEventListener("click", handleChooseCategory);
+    document.getElementById("sortSonstiges")?.addEventListener("click", handleChooseCategory);
+    
+
+    function handleChooseCategory(_event: Event): void {
+
+        let clickedCategory: HTMLElement = <HTMLElement>_event.target;
+        
+        document.getElementById("neuheiten")!.setAttribute("style", "display: none");
+        document.getElementById("angebote")!.setAttribute("style", "display: none");
+        document.getElementById("figuren")!.setAttribute("style", "display: none");
+        document.getElementById("plueschtiere")!.setAttribute("style", "display: none");
+        document.getElementById("sonstiges")!.setAttribute("style", "display: none");
+
+        if (clickedCategory.id === "sortNeuheiten") {
+            document.getElementById("neuheiten")!.setAttribute("style", "visibility: visible");
+        }
+        if (clickedCategory.id === "sortAngebote") {
+            document.getElementById("angebote")!.setAttribute("style", "visibility: visible");
+        }
+        if (clickedCategory.id === "sortFiguren") {
+            document.getElementById("figuren")!.setAttribute("style", "visibility: visible");
+        }
+        if (clickedCategory.id === "sortPlueschtiere") {
+            document.getElementById("plueschtiere")!.setAttribute("style", "visibility: visible");
+        }
+        if (clickedCategory.id === "sortSonstiges") {
+            document.getElementById("sonstiges")!.setAttribute("style", "visibility: visible");
+        }
+        if (clickedCategory.id === "sortAlles") {
+            document.getElementById("neuheiten")!.setAttribute("style", "visibility: visible");
+            document.getElementById("angebote")!.setAttribute("style", "visibility: visible");
+            document.getElementById("figuren")!.setAttribute("style", "visibility: visible");
+            document.getElementById("plueschtiere")!.setAttribute("style", "visibility: visible");
+            document.getElementById("sonstiges")!.setAttribute("style", "visibility: visible");
+        }
+
+    }
+    // Aufgabe 06-02 Ende
+
 }
