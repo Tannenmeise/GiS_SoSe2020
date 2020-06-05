@@ -217,7 +217,6 @@ namespace Aufgabe06 {
     document.getElementById("sortFiguren")?.addEventListener("click", handleChooseCategory);
     document.getElementById("sortPlueschtiere")?.addEventListener("click", handleChooseCategory);
     document.getElementById("sortSonstiges")?.addEventListener("click", handleChooseCategory);
-    
 
     function handleChooseCategory(_event: Event): void {
 
