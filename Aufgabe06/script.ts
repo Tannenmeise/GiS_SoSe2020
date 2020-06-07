@@ -230,20 +230,15 @@ namespace Aufgabe06 {
 
         if (clickedCategory.id === "sortNeuheiten") {
             document.getElementById("neuheiten")!.setAttribute("style", "visibility: visible");
-        }
-        if (clickedCategory.id === "sortAngebote") {
+        } else if (clickedCategory.id === "sortAngebote") {
             document.getElementById("angebote")!.setAttribute("style", "visibility: visible");
-        }
-        if (clickedCategory.id === "sortFiguren") {
+        } else if (clickedCategory.id === "sortFiguren") {
             document.getElementById("figuren")!.setAttribute("style", "visibility: visible");
-        }
-        if (clickedCategory.id === "sortPlueschtiere") {
+        } else if (clickedCategory.id === "sortPlueschtiere") {
             document.getElementById("plueschtiere")!.setAttribute("style", "visibility: visible");
-        }
-        if (clickedCategory.id === "sortSonstiges") {
+        } else if (clickedCategory.id === "sortSonstiges") {
             document.getElementById("sonstiges")!.setAttribute("style", "visibility: visible");
-        }
-        if (clickedCategory.id === "sortAlles") {
+        } else if (clickedCategory.id === "sortAlles") {
             document.getElementById("neuheiten")!.setAttribute("style", "visibility: visible");
             document.getElementById("angebote")!.setAttribute("style", "visibility: visible");
             document.getElementById("figuren")!.setAttribute("style", "visibility: visible");
