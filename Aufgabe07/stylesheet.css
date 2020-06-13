@@ -1,0 +1,378 @@
+body {
+    width: 1024px;
+    background-image: url(bg.png);
+    background-attachment: fixed;
+    font-family: Arial;
+    margin: auto;
+}
+
+main {
+    margin-top: 14%;
+}
+
+#home {
+    position: fixed;
+    top: 0;
+    margin-left: 875px;
+    padding: 10px;
+    z-index: 2;
+}
+
+#einkaufstasche {
+    position: fixed;
+    top: 0;
+    margin-left: 942px;
+    padding: 10px;
+    z-index: 2;
+}
+
+#einkaufstasche p {
+    font-size: 15px;
+    margin-left: 93%;
+    margin-top: -100%;
+    color: white;
+    visibility: hidden;
+}
+
+#einkaufstasche p span {
+    background-color: rgb(255, 199, 176);
+    border-radius: 10px;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#home:hover, #einkaufstasche:hover {
+    transform: scale(1.2);
+}
+
+input[type="image"]:hover {
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 50%, 100% {
+        transform: scale(1);
+    }
+    25%, 75% {
+        transform: scale(1.1);
+    }
+}
+
+#banner {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    width: 1024px;
+    height: 65px;
+    border-radius: 20px;
+}
+
+#banner, #seitenleiste {
+    border-left: 8px solid rgb(245, 214, 194);
+    border-bottom: 8px solid rgb(245, 214, 194);
+    z-index: 1;
+}
+
+#banner > h1 {
+    top: 0;
+    margin-top: 0.8%;
+    margin-left: 3.5%;
+    position: fixed;
+    font-size: 40px;
+    color: rgb(255, 199, 176);
+    text-shadow: 1px  1px 1px black,
+                 1px -1px 1px black,
+                 -1px  1px 1px black,
+                 -1px -1px 1px black;
+}
+
+#banner h1 span {
+    letter-spacing: -0.1em;
+}
+
+#banner img {
+    top: 0;
+    float: left;
+    margin-left: 0.5%;
+}
+
+#seitenleiste {
+    position: fixed;
+    border-radius: 20px;
+    background-color: white;
+    width: 103px;
+    margin-top: -2%;
+    padding: 18px 30px 18px 20px;
+}
+
+h3 {
+    color: rgb(179, 218, 255);
+    text-shadow: 0.35px  0.35px 0.35px black,
+                 0.35px -0.35px 0.35px black,
+                 -0.35px  0.35px 0.35px black,
+                 -0.35px -0.35px 0.35px black;
+}
+
+ul * {
+    font-size: 15px;
+    margin-left: -5px;
+    margin-bottom: 2px;
+}
+
+button :hover{
+    color: rgb(125, 179, 230);
+    cursor: pointer;
+}
+
+button {
+    background:none;
+    border:none;
+}
+
+h2 {
+    margin-left: 1%;
+    width: 97%;
+    color: white;
+    text-shadow: 0.5px  0.5px 0.5px black,
+                 0.5px -0.5px 0.5px black,
+                 -0.5px  0.5px 0.5px black,
+                 -0.5px -0.5px 0.5px black;
+    background-color: rgb(245, 214, 194);
+    border-radius: 18px;
+    padding-left: 14px;
+}
+
+.artikel {
+    margin-top: 4%;
+    margin-left: 17%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 850px;
+}
+
+.artikel div {
+    background-color: white;
+    width: 240px;
+    height: 240px;
+    padding-top: 10px;
+    margin-bottom: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2px solid rgb(255, 199, 176);
+}
+
+.artikel img {
+    border-radius: 60px;
+}
+
+.artikel p {
+    margin-top: 7%;
+    line-height: 7px;
+}
+
+p + .beschreibung {
+    font-size: 12px;
+}
+
+p ~ .preis {
+    color: rgb(0, 175, 0);
+}
+
+p ~ .reduziert {
+    color: rgb(255, 49, 22);
+}
+
+#delete {
+    background-color: white;
+    padding-right: 8px;
+    padding-left: 8px;
+    border-radius: 10px;
+    width: 320px;
+    border: 4px solid rgb(179, 218, 255);
+}
+
+#delete :hover {
+    color: red;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* tablet iPad*/
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+
+    body {
+        background-image: url(bg.png);
+        background-attachment: fixed;
+        background-color: rgb(255, 249, 246);
+        width: 768px;
+    }
+
+    #banner {
+        height: 65px;
+        width: 99%;
+    }
+
+    #banner h1 {
+        margin-left: 44px;
+    }
+
+    #home {
+        margin-top: 0%;
+        margin-left: 600px;
+        transform: scale(1.2);
+    }
+
+    #einkaufstasche {
+        margin-top: 0%;
+        margin-left: 680px;
+        transform: scale(1.2);
+    }
+
+    #seitenleiste {
+        width: 103px;
+    }
+
+    h2 {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .artikel {
+        margin-left: 180px;
+        width: 570px;
+    }
+}
+
+/* for smaller web-screen */
+@media screen and (min-width: 600px) and (max-width: 767px) {
+
+    body {
+        background-image: url(bg.png);
+        background-attachment: fixed;
+        background-color: rgb(255, 249, 246);
+        width: 600px;
+    }
+
+    #banner {
+        height: 65px;
+        width: 99%;
+    }
+
+    #banner h1 {
+        margin-left: 44px;
+    }
+
+    #home {
+        margin-top: 0%;
+        margin-left: 438px;
+        transform: scale(1.2);
+    }
+
+    #einkaufstasche {
+        margin-top: 0%;
+        margin-left: 510px;
+        transform: scale(1.2);
+    }
+
+    #seitenleiste {
+        width: 103px;
+        margin-top: 1%;
+    }
+
+    h2 {
+        margin-left: 0%;
+        width: 100%;
+    }
+
+    .artikel {
+        margin-left: 180px;
+        width: 390px;
+    }
+
+    .artikel div {
+        margin-top: 4%;
+    }
+}
+
+/* smartphone iPhone 6/7/8 */
+@media screen and (max-width: 600px) {
+
+    
+    body {
+        background-image: none;
+        background-color: rgb(255, 249, 246);
+        width: 375px;
+    }
+
+    #banner {
+        height: 44px;
+        width: 96%;
+    }
+
+    #banner h1 {
+        font-size: 22px;
+        margin-top: 2%;
+        margin-left: 40px;
+    }
+
+    #banner img {
+        transform: scale(0.8);
+    }
+
+    #home {
+        margin-left: 253px;
+        margin-top: -2%;
+        transform: scale(0.9);
+    }
+
+    #einkaufstasche {
+        margin-left: 308px;
+        margin-top: -2%;
+        transform: scale(0.9);
+    }
+
+    #seitenleiste {
+        margin-top: 5%;
+        margin-left: -1%;
+        width: 70px;
+        height: 160px;
+        font-size: 13px;
+    }
+
+    #seitenleiste h3, #seitenleiste ul {
+        margin-top: 0%;
+    }
+
+    h2 {
+        margin-left: 6%;
+        font-size: 16px;
+        width: 83%;
+    }
+
+    .artikel {
+        margin-left: 32%;
+        width: 70%;
+    }
+
+    .artikel div {
+        width: 80%;
+        height: 80%;
+    }
+
+    .artikel img {
+        width: 70%;
+        height: 70%;
+    }
+
+    .artikel p {
+        font-size: 10.6px;
+    }
+
+    ul *  {
+        font-size: 14px;
+        margin-left: -50%;
+    }
+}
