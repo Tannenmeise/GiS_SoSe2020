@@ -1,27 +1,15 @@
 namespace Aufgabe07 {
 
-    interface Artikel {
-        name: string;
-        beschreibung: string;
-        preis: number;
-        bild: string;
-        kategorie: string;
-    }
-
-   // Aufgabe 07-01 Anfang
-
-    // localStorage.clear();
-
-    let artikelArray: Artikel[];
     artikelErstellen();
+    document.getElementById("anzahl")!.innerHTML = localStorage.anzahl;
     
     async function communicate(_url: RequestInfo): Promise<void> {
 
-        let response: Response = await fetch(_url);
-        let response2: JSON = await response.json();
+        let response1: Response = await fetch(_url);
+        let response2: JSON = await response1.json();
         artikelArray = JSON.parse(JSON.stringify(response2));
     }
-
+    
     async function artikelErstellen(): Promise<void> {
 
         await communicate("artikel.json");
@@ -63,29 +51,29 @@ namespace Aufgabe07 {
             kaufen.addEventListener("click", handleKaufenClick);
         }
     }
-    // Aufgabe 07-01 Ende
 
     // Warenzahl-Counter und Preis-Rechner
-    localStorage.anzahl = 0;
-    let summeNumber: number = 0;
+    let lokaleSumme: number = 0;
 
     function handleKaufenClick(_event: Event): void {
 
         let clickedObject: HTMLElement = <HTMLElement>_event.target;
-
         // Anzahl berechnen & anzeigen
+        if (localStorage.anzahl === null) {
+            localStorage.anzahl = 0;
+        }
         localStorage.anzahl = Number(localStorage.anzahl) + 1;
         document.getElementById("anzahl")!.innerHTML = localStorage.anzahl;
-        document.getElementById("anzahl")!.setAttribute("style", "visibility: visible");
 
         // Summe berechnen & ausgeben
-        localStorage.summe = clickedObject!.previousSibling?.firstChild?.nodeValue!;
-        localStorage.summe = localStorage.summe.replace(/,/, ".");
-        summeNumber += parseFloat(localStorage.summe);
-        localStorage.summe = summeNumber.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        localStorage.preis = clickedObject!.previousSibling?.firstChild?.nodeValue!;
+        localStorage.preis = localStorage.preis.replace(/,/, ".");
+        lokaleSumme += parseFloat(localStorage.preis);
+        localStorage.summeNumber = lokaleSumme; // für Einkaufstasche
+        localStorage.summe = lokaleSumme.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         console.log(localStorage.summe);
 
-        // Aufgabe 07-02: Gekaufter Artikel speichern
+        // Artikel in localStorage speichern
         let gekaufterArtikel: string = "" + clickedObject!.parentNode!.firstChild!.nextSibling!.textContent;
         
         for (let j: number = 0; j < artikelArray.length; j++) {
@@ -95,7 +83,6 @@ namespace Aufgabe07 {
             }
         }
     }
-    // Ende
 
     document.getElementById("sortAlles")?.addEventListener("click", handleChooseCategory);
     document.getElementById("sortNeuheiten")?.addEventListener("click", handleChooseCategory);
@@ -133,7 +120,4 @@ namespace Aufgabe07 {
         }
 
     }
-
-    // Ende
-
 }
