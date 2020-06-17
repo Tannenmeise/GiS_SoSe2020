@@ -2,7 +2,13 @@
 var Aufgabe07;
 (function (Aufgabe07) {
     einkaufstascheFuellen();
+    if (localStorage.anzahl === undefined) {
+        localStorage.anzahl = Number(localStorage.anzahl) * 0;
+    }
     document.getElementById("anzahl").innerHTML = localStorage.anzahl;
+    if (localStorage.summe === undefined) {
+        localStorage.summe = Number(localStorage.summe) * 0;
+    }
     document.getElementById("summe").innerHTML = localStorage.summe;
     async function communicate(_url) {
         let response1 = await fetch(_url);
@@ -40,46 +46,41 @@ var Aufgabe07;
             }
         }
     }
+    let gesamtpreis2 = 0;
+    if (localStorage.help != null) {
+        gesamtpreis2 = parseFloat(localStorage.help);
+    }
     // EINZELNER ARTIKEL LÖSCHEN
     function handleDeleteClick(_event) {
         let clickedObject = _event.target;
-        // localStorage
-        let geloeschterArtikel = "" + clickedObject.parentNode.firstChild.nextSibling.textContent;
-        for (let j = 0; j < Aufgabe07.artikelArray.length; j++) {
-            if (Aufgabe07.artikelArray[j].name === geloeschterArtikel) {
-                localStorage.removeItem(j.toString());
-            }
-        }
         localStorage.anzahl = Number(localStorage.anzahl) - 1;
         // Gesamtpreis:
         localStorage.preis = clickedObject.previousSibling?.firstChild?.nodeValue;
         localStorage.preis = localStorage.preis.replace(/,/, ".");
-        localStorage.summeNumber -= parseFloat(localStorage.preis);
-        // Rundungsproblem
-        localStorage.summeNumber *= 100;
-        localStorage.summeNumber = Math.round(localStorage.summeNumber);
-        localStorage.summeNumber /= 100;
-        // ???:
-        localStorage.summe = localStorage.summeNumber.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        gesamtpreis2 -= parseFloat(localStorage.preis);
+        localStorage.help = gesamtpreis2;
+        localStorage.summe = gesamtpreis2.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        // Aus localStorage löschen:
+        let artikelPreis = "" + clickedObject.parentNode.firstChild.nextSibling.textContent;
+        for (let j = 0; j < Aufgabe07.artikelArray.length; j++) {
+            if (Aufgabe07.artikelArray[j].name === artikelPreis) {
+                localStorage.removeItem(j.toString());
+            }
+        }
         // div
         location.reload();
     }
-    // ALLE ARTIKEL LÖSCHEN
+    // ALLE ARTIKEL LÖSCHEN (aus localStorage)
     document.getElementById("delete")?.addEventListener("click", handleDeleteAll);
     function handleDeleteAll(_event) {
-        // localStorage
         for (let i = 0; i < Aufgabe07.artikelArray.length; i++) {
             if (localStorage.getItem(i.toString()) === "true") {
                 localStorage.removeItem(i.toString());
             }
         }
-        localStorage.anzahl = Number(localStorage.anzahl) * 0;
+        localStorage.anzahl = 0;
+        localStorage.help = 0;
         localStorage.summe = "0,00 €";
-        // div
-        /* Alternative:
-        while (document.getElementById("inhalt")!.firstChild) {
-            document.getElementById("inhalt")!.removeChild(document.getElementById("inhalt")!.firstChild!);
-        } */
         location.reload();
     }
 })(Aufgabe07 || (Aufgabe07 = {}));

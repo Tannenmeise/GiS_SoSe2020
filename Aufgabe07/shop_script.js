@@ -1,13 +1,16 @@
 "use strict";
 var Aufgabe07;
 (function (Aufgabe07) {
-    artikelErstellen();
-    document.getElementById("anzahl").innerHTML = localStorage.anzahl;
     async function communicate(_url) {
         let response1 = await fetch(_url);
         let response2 = await response1.json();
         Aufgabe07.artikelArray = JSON.parse(JSON.stringify(response2));
     }
+    artikelErstellen();
+    if (localStorage.anzahl === undefined) {
+        localStorage.anzahl = Number(localStorage.anzahl) * 0;
+    }
+    document.getElementById("anzahl").innerHTML = localStorage.anzahl;
     async function artikelErstellen() {
         await communicate("artikel.json");
         for (let i = 0; i < Aufgabe07.artikelArray.length; i++) {
@@ -42,22 +45,22 @@ var Aufgabe07;
             kaufen.addEventListener("click", handleKaufenClick);
         }
     }
+    let gesamtpreis1 = 0;
+    if (localStorage.help != null) {
+        gesamtpreis1 = parseFloat(localStorage.help);
+    }
     // Warenzahl-Counter und Preis-Rechner
-    let lokaleSumme = 0;
     function handleKaufenClick(_event) {
         let clickedObject = _event.target;
         // Anzahl berechnen & anzeigen
-        if (localStorage.anzahl === null) {
-            localStorage.anzahl = 0;
-        }
         localStorage.anzahl = Number(localStorage.anzahl) + 1;
         document.getElementById("anzahl").innerHTML = localStorage.anzahl;
         // Summe berechnen & ausgeben
         localStorage.preis = clickedObject.previousSibling?.firstChild?.nodeValue;
         localStorage.preis = localStorage.preis.replace(/,/, ".");
-        lokaleSumme += parseFloat(localStorage.preis);
-        localStorage.summeNumber = lokaleSumme; // für Einkaufstasche
-        localStorage.summe = lokaleSumme.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        gesamtpreis1 += parseFloat(localStorage.preis);
+        localStorage.help = gesamtpreis1;
+        localStorage.summe = gesamtpreis1.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         console.log(localStorage.summe);
         // Artikel in localStorage speichern
         let gekaufterArtikel = "" + clickedObject.parentNode.firstChild.nextSibling.textContent;
