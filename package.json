@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "start": "node C:/Users/giraf/Dokumente/GiS/GiS_SoSe2020/Aufgabe08/script.js"
+    "start": "node Aufgabe08/script.js"
   },
   "repository": {
     "type": "git",
