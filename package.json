@@ -1,0 +1,21 @@
+{
+  "name": "gis_sose2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "C:/Users/giraf/Dokumente/GiS/GiS_SoSe2020/Aufgabe08/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tannenmeise/GiS_SoSe2020.git"
+  },
+  "author": "Tamara Hezel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tannenmeise/GiS_SoSe2020/issues"
+  },
+  "homepage": "https://github.com/Tannenmeise/GiS_SoSe2020#readme"
+}
