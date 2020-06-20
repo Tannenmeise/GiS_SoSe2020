@@ -7,10 +7,10 @@ namespace Aufgabe08 {
     let url: string = "https://gis-sose-2020.herokuapp.com/";
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     url = url + "?" + query.toString();
-    serverCommunicate(url);
+    communicate(url);
   }
 
-  async function serverCommunicate(_url: RequestInfo): Promise<void> {
+  async function communicate(_url: RequestInfo): Promise<void> {
     let response1: Response = await fetch(_url);
     let response2: String = await response1.text();
     console.log(response2);

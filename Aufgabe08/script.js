@@ -7,9 +7,9 @@ var Aufgabe08;
         let url = "https://gis-sose-2020.herokuapp.com/";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
-        serverCommunicate(url);
+        communicate(url);
     }
-    async function serverCommunicate(_url) {
+    async function communicate(_url) {
         let response1 = await fetch(_url);
         let response2 = await response1.text();
         console.log(response2);
