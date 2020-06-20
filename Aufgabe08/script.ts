@@ -7,7 +7,7 @@ namespace Aufgabe08 {
     let url: string = "https://gis-sose-2020.herokuapp.com/";
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     url = url + "?" + query.toString();
-    
+
     let response1: Response = await fetch(url);
     let response2: string = response1.url;
     console.log(response2);
@@ -16,7 +16,7 @@ namespace Aufgabe08 {
       console.log(entry);
       console.log("name: " + entry[0]);
       console.log("value: " + entry[1]);
-  }
+    }
   }
 
 }
