@@ -9,7 +9,7 @@ namespace Aufgabe08 {
     url = url + "?" + query.toString();
 
     let response1: Response = await fetch(url);
-    let response2: string = response1.url;
+    let response2: string = await response1.url;
     console.log(response2);
 
     for (let entry of query) {
