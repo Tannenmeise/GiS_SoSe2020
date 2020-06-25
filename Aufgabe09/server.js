@@ -18,20 +18,19 @@ var A08Server;
     }
     function handleRequest(_request, _response) {
         console.log("I hear voices!");
-        let myData = url.parse(`${_request.url}`, true);
-        let myQuery = myData.query;
-        let splitThis = _request.url.slice(0, 5);
-        let myJsonString = JSON.stringify(myQuery);
-        if (splitThis == "/html") {
+        let urlData = url.parse(`${_request.url}`, true);
+        let query = urlData.query;
+        let pathString = _request.url.slice(0, 5);
+        let jsonString = JSON.stringify(query);
+        if (pathString == "/html") {
             _response.setHeader("content-type", "application/json");
             _response.setHeader("Access-Control-Allow-Origin", "*");
         }
-        else if (splitThis == "/json") {
+        else if (pathString == "/json") {
             _response.setHeader("content-type", "text/html");
             _response.setHeader("Access-Control-Allow-Origin", "*");
         }
-        console.log(myJsonString);
-        _response.write(myJsonString);
+        _response.write(jsonString);
         _response.end();
     }
 })(A08Server = exports.A08Server || (exports.A08Server = {}));
