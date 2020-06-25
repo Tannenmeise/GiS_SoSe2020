@@ -21,22 +21,20 @@ export namespace A08Server {
     
     console.log("I hear voices!");
         
-    let myData: url.UrlWithParsedQuery = url.parse(`${_request.url}`, true);
-    let myQuery: ParsedUrlQuery = myData.query;
-    let splitThis: string = (<string>_request.url).slice(0 , 5);
-    let myJsonString: string = JSON.stringify(myQuery);
+    let urlData: url.UrlWithParsedQuery = url.parse(`${_request.url}`, true);
+    let query: ParsedUrlQuery = urlData.query;
+    let pathString: string = (<string>_request.url).slice(0 , 5);
+    let jsonString: string = JSON.stringify(query);
         
-    if (splitThis == "/html") {
-        _response.setHeader("content-type", "application/json");
-        _response.setHeader("Access-Control-Allow-Origin", "*"); 
-      }
-      else if (splitThis == "/json") {
-        _response.setHeader("content-type", "text/html");
-        _response.setHeader("Access-Control-Allow-Origin", "*"); 
-      }
+    if (pathString == "/html") {
+      _response.setHeader("content-type", "application/json");
+      _response.setHeader("Access-Control-Allow-Origin", "*"); 
+    } else if (pathString == "/json") {
+      _response.setHeader("content-type", "text/html");
+      _response.setHeader("Access-Control-Allow-Origin", "*"); 
+    }
 
-    console.log(myJsonString); 
-    _response.write(myJsonString);    
+    _response.write(jsonString);    
     _response.end();                                                                                
     }
 }
