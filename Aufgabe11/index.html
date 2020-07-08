@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Server-Test-Seite</title>
+</head>
+
+<body>
+    <header>
+        <h1>Umfrage</h1>
+    </header>
+
+    <main>
+        <form>
+            <h4>Der Himmel ist...</h4>
+            <p><input type="radio" name="himmelFarbe" value="blau">Blau</p>
+            <p><input type="radio" name="himmelFarbe" value="weiss">Weiß</p>
+            <p><input type="radio" name="himmelFarbe" value="durchsichtig">Durchsichtig</p>
+            <p><input type="radio" name="himmelFarbe" value="keinHimmel">Es gibt keinen Himmel</p>
+            <p><input type="radio" name="himmelFarbe" value="keineAntwort">Keiner dieser Antworten</p>
+            <p><input type="radio" name="himmelFarbe" value="keineAhnung"> Ähhh...</p>
+            <p><input type="text" name="nachricht" placeholder="Was ich noch sagen wollte..."></p>
+            <p>Ich fühle mich...</p>
+            <select id="mood">
+                <option name="zustand" value="gluecklich">glücklich</option>
+                <option name="zustand" value="ueberfordert">überfordert</option>
+                <option name="zustand" value="gelangweilt">gelangweilt</option>
+            </select>
+            <p><button id="sendDB" type="button">Speichern in Datenbank</button><button id="showDB" type="button">Datenbankinhalte ausgeben</button></p>
+        </form>
+        <div>
+            <p>Dankeschön :)</p>
+        </div>
+        <div id="output">
+            <p>Serverantwort:</p>
+        </div>
+
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
