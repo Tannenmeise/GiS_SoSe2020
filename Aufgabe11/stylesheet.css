@@ -2,10 +2,6 @@ header {
     margin-bottom: 40px;
 }
 
-input[type=text] {
-    width: 300px;
-}
-
 #sendDB {
     margin-right: 10px;
 }
