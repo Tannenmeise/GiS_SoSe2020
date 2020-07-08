@@ -48,9 +48,9 @@ export namespace Aufgabe11 {
         // Ausgabe auf Seite
         if (_request.url) {
             let q: url.UrlWithParsedQuery = url.parse(_request.url, true);
+            
             if (q.pathname == "/send") {
                 orders.insertOne(q.query);
-
             } else {
                 _response.write(JSON.stringify(await orders.find().toArray()));
             }
