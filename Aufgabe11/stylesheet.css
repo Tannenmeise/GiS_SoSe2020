@@ -5,3 +5,8 @@ header {
 #sendDB {
     margin-right: 10px;
 }
+
+select {
+    width: 145px;
+    height: 21px;
+}
