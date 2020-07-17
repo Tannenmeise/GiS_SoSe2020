@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js" defer></script>
+    <title>Ice Dream | Kreiere dein Eis</title>
+</head>
+
+<body>
+    <header>
+        <div id="banner">
+            <a href="home.html"><img src="logo.png" alt="Logo"></a>
+            <p><a href="home.html"><span>Ice Dream</span></a></p>
+            <p>Kühlbox</p>
+            <nav>
+                <div>
+                    <a href="kreation.html">Kreiere dein Eis</a>
+                    <a href="klassiker.html">Unsere Klassiker</a>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div id="body">
+            <p class="punkte">. . . . . . . . . . .</p>
+            <h1>Eiskreation</h1>
+            <p class="punkte">. . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+            <div id="vorschau">
+                <img src="" id="beilageBild">
+                <img src="" id="streuselBild">
+                <img src="" id="toppingBild">
+                <img src="" id="kugel3Bild">
+                <img src="" id="kugel2Bild">
+                <img src="Vorschau/erdbeerekugel.png" id="kugel1Bild">
+                <img src="Vorschau/becher.png" id="behaelterBild">
+            </div>
+            <div>
+                <p class="beschreibung">Kreiere dein einmaliges Eis!</p>
+                <form>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Behälter</td>
+                                <td>
+                                    <select id="behaelter" name="behaelter">
+                                        <option id="becher" value="becher">Becher</option>
+                                        <option id="papptrichter" value="papptrichter">Papptrichter</option>
+                                        <option id="waffel" value="waffel">Waffel</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Erste Kugel</td>
+                                <td>
+                                    <select id="kugel1" name="kugel1">
+                                        <option id="erdbeere" value="erdbeere">Erdbeere</option>
+                                        <option id="minze" value="minze">Minze</option>
+                                        <option id="schokolade" value="schokolade">Schokolade</option>
+                                        <option id="stracciatella" value="stracciatella">Stracciatella</option>
+                                        <option id="vanille" value="vanille">Vanille</option>
+                                        <option id="waldbeeren" value="waldbeeren">Waldbeeren</option>
+                                        <option id="waldmeister" value="waldmeister">Waldmeister</option>
+                                        <option id="walnuss" value="walnuss">Walnuss</option>
+                                        <option id="zitrone" value="zitrone">Zitrone</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Zweite Kugel</td>
+                                <td>
+                                    <select id="kugel2" name="kugel2">
+                                        <option id="nichts" value="keine">---</option>
+                                        <option id="erdbeere" value="erdbeere">Erdbeere</option>
+                                        <option id="minze" value="minze">Minze</option>
+                                        <option id="schokolade" value="schokolade">Schokolade</option>
+                                        <option id="stracciatella" value="stracciatella">Stracciatella</option>
+                                        <option id="vanille" value="vanille">Vanille</option>
+                                        <option id="waldbeeren" value="waldbeeren">Waldbeeren</option>
+                                        <option id="waldmeister" value="waldmeister">Waldmeister</option>
+                                        <option id="walnuss" value="walnuss">Walnuss</option>
+                                        <option id="zitrone" value="zitrone">Zitrone</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Dritte Kugel</td>
+                                <td>
+                                    <select id="kugel3" name="kugel3">
+                                        <option id="nichts" value="keine">---</option>
+                                        <option id="erdbeere" value="erdbeere">Erdbeere</option>
+                                        <option id="minze" value="minze">Minze</option>
+                                        <option id="schokolade" value="schokolade">Schokolade</option>
+                                        <option id="stracciatella" value="stracciatella">Stracciatella</option>
+                                        <option id="vanille" value="vanille">Vanille</option>
+                                        <option id="waldbeeren" value="waldbeeren">Waldbeeren</option>
+                                        <option id="waldmeister" value="waldmeister">Waldmeister</option>
+                                        <option id="walnuss" value="walnuss">Walnuss</option>
+                                        <option id="zitrone" value="zitrone">Zitrone</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Toppings</td>
+                                <td>
+                                    <select id="topping" name="topping">
+                                        <option id="nichts" value="keine">---</option>
+                                        <option id="sahne" value="sahne">Sahne</option>
+                                        <option id="schokoladensosse" value="schokoladensosse">Schokoladensoße</option>
+                                        <option id="vanillesosse" value="vanillesosse">Vanillesoße</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Streusel</td>
+                                <td>
+                                    <select id="streusel" name="streusel">
+                                        <option id="nichts" value="keine">---</option>
+                                        <option id="bunt" value="bunt">bunt</option>
+                                        <option id="mandeln" value="mandeln">geröstete Mandeln</option>
+                                        <option id="herze" value="herze">Herzchen</option>
+                                        <option id="schokostreusel" value="schokostreusel">Schokostreusel</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Beilage</td>
+                                <td>
+                                    <select id="beilage" name="beilage">
+                                        <option id="nichts" value="keine">---</option>
+                                        <option id="keksloeffel" value="keksloeffel">Kekslöffel</option>
+                                        <option id="waffelstick" value="waffelstick">Waffelstick</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="punkte">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+                    <table id="adresse">
+                        <tbody>
+                            <tr>
+                                <td>Anrede</td>
+                                <td>
+                                    <select name="anrede">
+                                        <option value="herr">Herr</option>
+                                        <option value="frau">Frau</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Vorname</td>
+                                <td>
+                                    <input type="text" name="vorname">
+                                </td>
+                                <td>Nachname</td>
+                                <td>
+                                    <input type="text" name="nachname">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Straße</td>
+                                <td>
+                                    <input type="text" name="strasse">
+                                </td>
+                                <td>Nr.</td>
+                                <td>
+                                    <input type="number" name="hausnummer">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Postleitzahl</td>
+                                <td>
+                                    <input type="number" name="postleitzahl">
+                                </td>
+                                <td>Ort</td>
+                                <td>
+                                    <input type="text" name="ort">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p id="preis">Preis:</p>
+                    <p><button id="kaufen" type="button">Bestellen</button></p>
+                </form>
+            </div>
+            
+        </div>
+    </main>
+    <footer>
+        Copyright 2020 © All rights Reserved | <a href="mitarbeiter.html">Mitarbeiter-Login</a>
+    </footer>
+</body>
+
+</html>

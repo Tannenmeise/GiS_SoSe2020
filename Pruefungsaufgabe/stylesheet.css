@@ -1,0 +1,271 @@
+body {
+    width: 1024px;
+    background-color: lavenderblush;
+    font-family: Arial;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#banner {
+    background-image: url(banner.png);
+    margin-top: -16px;
+    height: 160px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+#banner span {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(163, 46, 91);
+    text-shadow: 1px  1px 1px seashell,
+                 1px -1px 1px seashell,
+                 -1px  1px 1px seashell,
+                 -1px -1px 1px brown;
+    background-color: white;
+    opacity: 80%;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 30px;
+    margin-left: 270px;
+}
+
+#banner a {
+    text-decoration: none; 
+}
+
+#banner img {
+    margin-top: 13px;
+    margin-left: 24px;
+}
+
+nav {
+    background-color: white;
+    opacity: 88%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 50px;
+    width: 1024px;
+    border-radius: 30px;
+}
+
+nav div {
+    margin-top: 15px;
+}
+
+nav div a {
+    margin-left: 130px;
+    text-decoration: none;
+    color: maroon;
+    text-shadow: 1px  1px 1px seashell,
+                 1px -1px 1px seashell,
+                 -1px  1px 1px seashell,
+                 -1px -1px 1px brown;
+}
+
+#body {
+    margin-top: -10px;
+    background-color: rgb(231, 240, 234);
+    text-align: center;
+    color: rgb(92, 22, 43);
+}
+
+h1, h3 {
+    color: rgb(121, 31, 58);
+    font-weight: normal;
+}
+
+span {
+    font-family: verdana pro light;
+}
+
+.punkte {
+    color: white;
+    font-weight: bold;
+}
+
+.beschreibung {
+    font-size: 14px;
+    margin-bottom: 50px;
+    color: rgb(138, 95, 108);
+    font-style: italic;
+}
+
+.box {
+    margin-left: 109px;
+    margin-bottom: 20px;
+    background-color: rgb(251, 255, 254);
+    width: 700px;
+    padding: 10px 50px 23px 50px;
+    border-radius: 60px;
+    border-color: rgb(216, 169, 137);
+    border-style: dotted;
+    color: rgb(138, 95, 108);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+
+.box h3 {
+    font-family: verdana;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+    font-size: 22px;
+}
+
+ul {
+    text-align: left;
+    margin-left: 95px;
+}
+
+form {
+    margin-top: 150px;
+    margin-left: 80px;
+}
+
+tr {
+    height: 30px;
+    color: rgb(46, 82, 97);
+}
+
+select {
+    color: rgb(121, 31, 58);
+}
+
+#vorschau {
+    position: absolute;
+    margin-left: 540px;
+    margin-top: 220px;
+}
+
+#behaelterBild {
+    position: absolute;
+    z-index: 5;
+}
+
+#kugel1Bild {
+    position: absolute;
+    z-index: 2;
+    margin-left: 68px;
+    margin-top: -105px;
+}
+
+#kugel2Bild {
+    position: absolute;
+    z-index: 0;
+    margin-left: 1px;
+    margin-top: -100px;
+    scale: 0.8;
+}
+
+#kugel3Bild {
+    position: absolute;
+    z-index: 0;
+    margin-left: 130px;
+    margin-top: -100px;
+    scale: 0.8;
+}
+
+#toppingBild {
+    position: absolute;
+    z-index: 3;
+    margin-top: -190px;
+    margin-left: 52px;
+}
+
+#streuselBild {
+    position: absolute;
+    z-index: 4;
+    margin-top: -120px;
+    margin-left: 75px;
+}
+
+#beilageBild {
+    position: absolute;
+    z-index: 1;
+    margin-top: -172px;
+    margin-left: 180px;
+}
+
+table {
+    background-color: rgb(211, 146, 157);
+    width: 300px;
+    margin-bottom: 80px;
+    margin-top: 30px;
+}
+
+tbody {
+    background-color: white
+}
+
+option {
+    width: 110px;
+}
+
+#adresse {
+    background-color: rgb(104, 123, 128);
+    margin-left: 200px;
+    margin-top: 50px;
+}
+
+#adresse * {
+    color: black;
+}
+
+button {
+    font-size: 16px;
+    background-color: white;
+    color: rgb(121, 31, 58);
+    padding: 5px 15px 5px 15px;
+    border-radius: 10px;
+    margin-left: -72px;
+    margin-bottom: 10px;
+}
+
+#preis {
+    margin-left: -120px;
+}
+
+/* Klassiker */
+#klassiker {
+    margin-top: 4%;
+    margin-left: 7%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 900px;
+}
+
+#klassiker > div {
+    background-color: white;
+    width: 400px;
+    height: 580px;
+    padding-top: 10px;
+    margin-bottom: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 2px solid rgb(255, 199, 176);
+}
+
+#klassiker div div {
+    margin-left: -300px;
+    margin-top: 200px;
+}
+
+.name {
+    font-size: 22px;
+}
+
+footer {
+    background-color: rgb(86, 119, 114);
+    color: whitesmoke;
+    text-align: center;
+    font-size: 14px;
+}
+
+a {
+    color: white;
+}
