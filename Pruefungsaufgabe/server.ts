@@ -75,7 +75,7 @@ export namespace Pruefungsaufgabe {
     function erstelleHTMLAusgabe(_response: Http.ServerResponse, _query: ParsedUrlQuery): void {
         let resultHTML: string = "";
         orders.find().toArray();
-        console.log(orders.find().toArray());
+        console.log("All orders: " + orders.find().toArray().then);
         for (let q in _query) {
             resultHTML += `<p>${q}: ${_query[q]}</p>`;
         }
