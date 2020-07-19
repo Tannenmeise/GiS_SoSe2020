@@ -52,7 +52,8 @@ export namespace Pruefungsaufgabe {
                     orders.insertOne(urlWithQuery.query);
                     break;
                 case "/show":
-                    erstelleHTMLAusgabe(_response, urlWithQuery.query);
+                    //erstelleHTMLAusgabe(_response, urlWithQuery.query);
+                    _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
                 case "/deleteAll":
                     orders.remove({"anrede": "herr"});
@@ -65,21 +66,22 @@ export namespace Pruefungsaufgabe {
                     orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
                     break;
                 default:
-                    _response.write(_request.url);
+                    //_response.write(_request.url);
             }
         }
         _response.end();
     }
 
-
+/*
     function erstelleHTMLAusgabe(_response: Http.ServerResponse, _query: ParsedUrlQuery): void {
         let resultHTML: string = "";
         orders.find().toArray();
+        
         console.log("All orders: " + orders.find().toArray().then);
         for (let q in _query) {
             resultHTML += `<p>${q}: ${_query[q]}</p>`;
         }
         _response.write(resultHTML);
     }
-
+*/
 }
