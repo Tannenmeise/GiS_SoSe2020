@@ -36,10 +36,12 @@ var Pruefungsaufgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
-            //let pfad: string | null = url.pathname;
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);
+                    break;
+                case "/show":
+                    erstelleHTMLAusgabe(_response, urlWithQuery.query);
                     break;
                 case "/deleteAll":
                     orders.remove({ "anrede": "herr" });
@@ -54,23 +56,15 @@ var Pruefungsaufgabe;
                 default:
                     _response.write(_request.url);
             }
-            /*
-            if (pfad == "/send") {
-                orders.insertOne(url.query);
-            } else if (pfad == "/show") {
-                let number: number = await orders.countDocuments({});
-                for (let i: number = 0; i < number; i++) {
-                    _response.write(orders.findOne({"anrede": "herr"}));
-                }
-            } else if (pfad) {
-
-            } else if (pfad == "/deleteAll") {
-                orders.remove({"anrede": "herr"});
-                orders.remove({"anrede": "frau"});
-            }
-            */
         }
         _response.end();
+    }
+    function erstelleHTMLAusgabe(_response, _query) {
+        let resultHTML = "";
+        for (let q in _query) {
+            resultHTML += `<p>${q}: ${_query[q]}</p>`;
+        }
+        _response.write(resultHTML);
     }
 })(Pruefungsaufgabe = exports.Pruefungsaufgabe || (exports.Pruefungsaufgabe = {}));
 //# sourceMappingURL=server.js.map

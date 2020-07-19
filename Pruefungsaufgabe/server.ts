@@ -1,5 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
+import { ParsedUrlQuery } from "querystring";
 import * as Mongo from "mongodb";
 
 export namespace Pruefungsaufgabe {
@@ -44,13 +45,14 @@ export namespace Pruefungsaufgabe {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         
         if (_request.url) {
-
             let urlWithQuery: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            //let pfad: string | null = url.pathname;
 
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);
+                    break;
+                case "/show":
+                    erstelleHTMLAusgabe(_response, urlWithQuery.query);
                     break;
                 case "/deleteAll":
                     orders.remove({"anrede": "herr"});
@@ -65,23 +67,17 @@ export namespace Pruefungsaufgabe {
                 default:
                     _response.write(_request.url);
             }
-
-            /*
-            if (pfad == "/send") {
-                orders.insertOne(url.query);
-            } else if (pfad == "/show") {
-                let number: number = await orders.countDocuments({});
-                for (let i: number = 0; i < number; i++) {
-                    _response.write(orders.findOne({"anrede": "herr"}));
-                }
-            } else if (pfad) {
-
-            } else if (pfad == "/deleteAll") {
-                orders.remove({"anrede": "herr"});
-                orders.remove({"anrede": "frau"});
-            }
-            */
         }
         _response.end();
     }
+
+
+    function erstelleHTMLAusgabe(_response: Http.ServerResponse, _query: ParsedUrlQuery): void {
+        let resultHTML: string = "";
+        for (let q in _query) {
+            resultHTML += `<p>${q}: ${_query[q]}</p>`;
+        }
+        _response.write(resultHTML);
+    }
+
 }
