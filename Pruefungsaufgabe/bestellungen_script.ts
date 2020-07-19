@@ -10,9 +10,14 @@ namespace Pruefungsaufgabe {
     async function handleShowDB(): Promise<void> {
 
         let url: string = "https://gis-sose-2020.herokuapp.com/show";
-        let response1: Response = await fetch(url);
-        let response2: string = await response1.text();
-        (<HTMLDivElement>document.getElementById("ausgabeB")).innerHTML = response2;
+        let responseServer: Response = await fetch(url);
+        console.log("responseServer: " + responseServer);
+        let responseText: string = await responseServer.text();
+        console.log("responseText: " + responseText);
+        let responseHTML: HTMLElement = <HTMLElement> document.getElementById("ausgabeB");
+        console.log("hello?");
+        responseHTML.innerHTML = responseText;
+        console.log(responseText);
     }
 
 

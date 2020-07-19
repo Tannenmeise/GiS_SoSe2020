@@ -54,10 +54,10 @@ export namespace Pruefungsaufgabe {
             if (pfad == "/send") {
                 orders.insertOne(url.query);
             } else if (pfad == "/show") {
-                for (let key in url.query) {
-                    console.log("Hello?");
-                    _response.write(key + ": " + url.query[key] + "<br/>");
-                }
+                console.log("orders.countDocuments(): " + orders.countDocuments());
+                //for (let i: number = 0; i < orders.countDocuments(); i++) {
+                //    _response.write(key + ": " + url.query[key] + "<br/>");
+                //}
             } else if (pfad == "/deleteAll") {
                 orders.remove({"anrede": "herr"});
             }
