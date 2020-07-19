@@ -38,6 +38,8 @@ var Pruefungsaufgabe;
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
             console.log("Pathname for this one: " + urlWithQuery.pathname);
+            let id = urlWithQuery.query["id"];
+            let objID = new Mongo.ObjectId(id);
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);
@@ -52,16 +54,14 @@ var Pruefungsaufgabe;
                 case "/addStatusFinished":
                     console.log("Hello, yes. This is: /addStatusFinished");
                     orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "fertig" } });
+                    await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
                     break;
                 case "/addStatusDelivered":
                     console.log("Hello, yes. This is: /addStatusDelivered");
-                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "geliefert" } });
+                    //orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
+                    await orders.updateOne({ "_id": objID }, { $set: { status: "geliefert" } });
                     break;
                 case "/removeOne":
-                    console.log("Hello, yes. This is: /removeOne");
-                    //orders.deleteOne({_id : ObjectId(urlWithQuery.query)});
-                    let id = urlWithQuery.query["id"];
-                    let objID = new Mongo.ObjectId(id);
                     await orders.deleteOne({ "_id": objID });
                     break;
                 default:
