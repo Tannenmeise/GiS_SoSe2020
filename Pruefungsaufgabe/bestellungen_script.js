@@ -9,9 +9,14 @@ var Pruefungsaufgabe;
         let bestellungen = await response.json();
         let output = document.getElementById("ausgabeB");
         output.innerHTML = "";
+        for (let b = 0; b < bestellungen.length; b++) {
+            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
+        }
+        /*
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
         }
+        */
     }
     function erstelleBestellungBlock(_b) {
         let bestellungDiv = document.createElement("div");

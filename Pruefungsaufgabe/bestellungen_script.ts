@@ -32,9 +32,14 @@ namespace Pruefungsaufgabe {
         let output: HTMLDivElement = <HTMLDivElement>document.getElementById("ausgabeB");
         output.innerHTML = "";
         
+        for (let b: number = 0; b < bestellungen.length; b++) {
+            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
+        }
+        /*
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
         }
+        */
     }
 
 

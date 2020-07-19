@@ -153,7 +153,6 @@ var Pruefungsaufgabe;
         }
         ausgabePreis = "Preis: " + preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         document.getElementById("preis").innerHTML = ausgabePreis;
-        console.log(preis);
     }
     // Ablegen der Bestellung in Datenbank
     let formData;

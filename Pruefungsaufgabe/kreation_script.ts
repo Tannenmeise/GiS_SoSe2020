@@ -172,7 +172,6 @@ namespace Pruefungsaufgabe {
         }
         ausgabePreis = "Preis: " + preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
         (<HTMLDivElement>document.getElementById("preis")).innerHTML = ausgabePreis;
-        console.log(preis);
     }
 
 
