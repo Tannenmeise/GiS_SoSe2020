@@ -37,6 +37,7 @@ var Pruefungsaufgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
+            console.log(urlWithQuery.pathname);
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);

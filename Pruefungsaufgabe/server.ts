@@ -46,6 +46,7 @@ export namespace Pruefungsaufgabe {
         
         if (_request.url) {
             let urlWithQuery: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            console.log(urlWithQuery.pathname);
 
             switch (urlWithQuery.pathname) {
                 case "/send":
