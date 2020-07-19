@@ -61,15 +61,18 @@ export namespace Pruefungsaufgabe {
                     break;
                 case "/addStatusFinished":
                     console.log("Hello, yes. This is: /addStatusFinished");
-                    orders.updateOne({_id: "" + urlWithQuery.query}, {$set: {status: "fertig"}});
+                    orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "fertig"}});
                     break;
                 case "/addStatusDelivered":
                     console.log("Hello, yes. This is: /addStatusDelivered");
-                    orders.updateOne({_id: "" + urlWithQuery.query}, {$set: {status: "geliefert"}});
+                    orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
                     break;
                 case "/removeOne":
                     console.log("Hello, yes. This is: /removeOne");
-                    orders.deleteOne({_id : "" + urlWithQuery.query});
+                    //orders.deleteOne({_id : ObjectId(urlWithQuery.query)});
+                    let id: string = <string>urlWithQuery.query["id"];
+                    let objID: Mongo.ObjectId = new Mongo.ObjectId(id);
+                    await orders.deleteOne({"_id": objID});
                     break;
                 default:
                     //_response.write(_request.url);
