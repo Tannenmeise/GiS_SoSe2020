@@ -51,7 +51,7 @@ var Pruefungsaufgabe;
                     break;
                 case "/addStatusFinished":
                     console.log("Hello, yes. This is: /addStatusFinished");
-                    orders.updateOne({ _id: "ObjectId(" + urlWithQuery.query + ")" }, { $set: { status: "fertig" } });
+                    orders.updateOne({ _id: ObjectId(urlWithQuery.query) }, { $set: { status: "fertig" } });
                     break;
                 case "/addStatusDelivered":
                     console.log("Hello, yes. This is: /addStatusDelivered");
@@ -60,7 +60,7 @@ var Pruefungsaufgabe;
                 case "/removeOne":
                     console.log("Hello, yes. This is: /removeOne");
                     //orders.deleteOne({_id: urlWithQuery.query});
-                    orders.deleteOne({ _id: "ObjectId(" + urlWithQuery.query + ")" });
+                    orders.deleteOne({ _id: ObjectId(urlWithQuery.query) });
                     break;
                 default:
                 //_response.write(_request.url);
