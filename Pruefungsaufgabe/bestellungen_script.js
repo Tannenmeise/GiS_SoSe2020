@@ -18,7 +18,7 @@ var Pruefungsaufgabe;
     async function handleDeleteAll() {
         let url = "https://gis-sose-2020.herokuapp.com/deleteAll";
         await fetch(url);
-        location.reload();
+        //location.reload();
     }
 })(Pruefungsaufgabe || (Pruefungsaufgabe = {}));
 //# sourceMappingURL=bestellungen_script.js.map

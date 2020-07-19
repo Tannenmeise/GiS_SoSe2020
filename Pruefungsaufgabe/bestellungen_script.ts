@@ -25,7 +25,7 @@ namespace Pruefungsaufgabe {
 
         let url: string = "https://gis-sose-2020.herokuapp.com/deleteAll";
         await fetch(url);
-        location.reload();
+        //location.reload();
     }
 
 }

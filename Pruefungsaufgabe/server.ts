@@ -54,11 +54,9 @@ export namespace Pruefungsaufgabe {
             if (pfad == "/send") {
                 orders.insertOne(url.query);
             } else if (pfad == "/show") {
-                for (let key in url.query) {
-                    // _response.setHeader("content-type" , "json/application");
-                    _response.write(key + ": " + url.query[key] + "<br/>");
-                //    _response.write(key + ": " + url.query[key] + "<br/>");
-                // _response.write(JSON.stringify(await orders.find().toArray()));
+                let number: number = await orders.countDocuments({});
+                for (let i: number = 0; i < number; i++) {
+                    _response.write(orders.findOne({"anrede": "herr"}));
                 }
             } else if (pfad == "/deleteAll") {
                 orders.remove({"anrede": "herr"});
