@@ -36,11 +36,6 @@ namespace Pruefungsaufgabe {
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
         }
-        /*
-        for (let b: number = 0; b < bestellungen.length; b++) {
-            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
-        }
-        */
     }
 
 

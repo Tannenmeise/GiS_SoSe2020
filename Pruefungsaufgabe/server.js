@@ -37,13 +37,13 @@ var Pruefungsaufgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
-            console.log(urlWithQuery.pathname);
+            console.log("Pathname for this one: " + urlWithQuery.pathname);
+            console.log("The query part: " + urlWithQuery.query);
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);
                     break;
                 case "/show":
-                    //erstelleHTMLAusgabe(_response, urlWithQuery.query);
                     _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
                 case "/deleteAll":
@@ -52,11 +52,16 @@ var Pruefungsaufgabe;
                     break;
                 case "/addStatusFinished":
                     console.log("Hello, yes. This is: /addStatusFinished");
-                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "fertig" } });
+                    orders.updateOne({ _id: "ObjectId(" + urlWithQuery.query + ")" }, { $set: { status: "fertig" } });
                     break;
                 case "/addStatusDelivered":
                     console.log("Hello, yes. This is: /addStatusDelivered");
-                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "geliefert" } });
+                    orders.updateOne({ "_id": urlWithQuery.query }, { $set: { status: "geliefert" } });
+                    break;
+                case "/removeOne":
+                    console.log("Hello, yes. This is: /removeOne");
+                    //orders.deleteOne({_id: urlWithQuery.query});
+                    orders.deleteOne({ _id: "ObjectId(" + urlWithQuery.query + ")" });
                     break;
                 default:
                 //_response.write(_request.url);
