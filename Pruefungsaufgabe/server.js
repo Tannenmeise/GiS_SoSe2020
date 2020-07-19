@@ -41,13 +41,16 @@ var Pruefungsaufgabe;
                 orders.insertOne(url.query);
             }
             else if (pfad == "/show") {
-                console.log("orders.countDocuments(): " + orders.countDocuments());
-                //for (let i: number = 0; i < orders.countDocuments(); i++) {
-                //    _response.write(key + ": " + url.query[key] + "<br/>");
-                //}
+                for (let key in url.query) {
+                    // _response.setHeader("content-type" , "json/application");
+                    _response.write(key + ": " + url.query[key] + "<br/>");
+                    //    _response.write(key + ": " + url.query[key] + "<br/>");
+                    // _response.write(JSON.stringify(await orders.find().toArray()));
+                }
             }
             else if (pfad == "/deleteAll") {
                 orders.remove({ "anrede": "herr" });
+                orders.remove({ "anrede": "frau" });
             }
         }
         _response.end();
