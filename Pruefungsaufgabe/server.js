@@ -61,6 +61,8 @@ var Pruefungsaufgabe;
     }
     function erstelleHTMLAusgabe(_response, _query) {
         let resultHTML = "";
+        orders.find().toArray();
+        console.log(orders.find().toArray());
         for (let q in _query) {
             resultHTML += `<p>${q}: ${_query[q]}</p>`;
         }

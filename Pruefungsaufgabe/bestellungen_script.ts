@@ -28,16 +28,17 @@ namespace Pruefungsaufgabe {
     async function handleShowDB(_e: Event): Promise<void> {
 
         let response: Response = await fetch("https://gis-sose-2020.herokuapp.com/show");
+        console.log(response);
         let bestellungen: Bestellung[] = await response.json();
         let output: HTMLDivElement = <HTMLDivElement>document.getElementById("ausgabeB");
         output.innerHTML = "";
         
-        for (let b: number = 0; b < bestellungen.length; b++) {
-            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
-        }
-        /*
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
+        }
+        /*
+        for (let b: number = 0; b < bestellungen.length; b++) {
+            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
         }
         */
     }

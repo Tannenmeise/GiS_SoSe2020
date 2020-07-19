@@ -6,15 +6,16 @@ var Pruefungsaufgabe;
     document.getElementById("deleteAll")?.addEventListener("click", handleDeleteAll);
     async function handleShowDB(_e) {
         let response = await fetch("https://gis-sose-2020.herokuapp.com/show");
+        console.log(response);
         let bestellungen = await response.json();
         let output = document.getElementById("ausgabeB");
         output.innerHTML = "";
-        for (let b = 0; b < bestellungen.length; b++) {
-            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
-        }
-        /*
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
+        }
+        /*
+        for (let b: number = 0; b < bestellungen.length; b++) {
+            output.appendChild(erstelleBestellungBlock(bestellungen[b]));
         }
         */
     }
