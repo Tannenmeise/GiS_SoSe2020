@@ -1,5 +1,5 @@
 import * as Http from "http";
-import * as url from "url";
+import * as Url from "url";
 import * as Mongo from "mongodb";
 
 export namespace Pruefungsaufgabe {
@@ -27,6 +27,7 @@ export namespace Pruefungsaufgabe {
     }
 
     async function connectToDatabase(_url: string): Promise<void> {
+
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
@@ -45,14 +46,20 @@ export namespace Pruefungsaufgabe {
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         
-        // Ausgabe auf Seite
         if (_request.url) {
-            let q: url.UrlWithParsedQuery = url.parse(_request.url, true);
-            
-            if (q.pathname == "/send") {
-                orders.insertOne(q.query);
-            } else {
-                _response.write(JSON.stringify(await orders.find().toArray()));
+
+            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            let pfad: string | null = url.pathname;
+
+            if (pfad == "/send") {
+                orders.insertOne(url.query);
+            } else if (pfad == "/show") {
+                for (let key in url.query) {
+                    console.log("Hello?");
+                    _response.write(key + ": " + url.query[key] + "<br/>");
+                }
+            } else if (pfad == "/deleteAll") {
+                orders.remove({"anrede": "herr"});
             }
         }
         _response.end();

@@ -4,17 +4,49 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, inital-scale=1.0">
-    <title>Ice Dream | Kreation</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="login_script.js" defer></script>
+    <script src="bestellungen_script.js" defer></script>
+    <title>Ice Dream | Create your dream cream</title>
 </head>
 
 <body>
     <header>
-        <h1>Titel</h1>
+        <div id="banner">
+            <a href="home.html"><img src="logo.png" alt="Logo"></a>
+            <p><a href="home.html"><span>Ice Dream</span></a></p>
+            <div id="bestellungen">
+                <a href="mitarbeiter.html">Bestellungen</a>
+            </div>
+            <nav>
+                <div>
+                    <a href="kreation.html">Kreiere dein Eis</a>
+                    <a href="klassiker.html">Unsere Klassiker</a>
+                    <a href="ueber-uns.html">Über uns</a>
+                    <a href="kontakt.html">Kontakt</a>
+                </div>
+            </nav>
+        </div>
     </header>
     <main>
-        <p>Nothing to see here...</p>
+        <div id="body">
+            <p class="punkte">. . . . . . . . . . .</p>
+            <h1>Bestellungen</h1>
+            <p class="punkte">. . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+            <p>Hallo <span id="ihrName"></span>!</p>
+            <p class="punkte">. . . . . . . . . . .</p>
+            <div id="ausgabe">
+                <div id="ausgabeB"></div>
+            </div>
+            <p class="punkte">. . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
+            <p>
+                <button id="showDB" type="button">Bestellungen anzeigen</button>
+                <button id="deleteAll" type="button">Alle Bestellungen löschen</button>
+            </p>
+        </div>
     </main>
     <footer>
+        Copyright 2020 © All rights Reserved | <a href="login.html">Mitarbeiter-Login</a>
     </footer>
 </body>
 

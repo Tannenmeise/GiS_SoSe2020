@@ -1,6 +1,13 @@
 namespace Pruefungsaufgabe {
 
-    
+    (<HTMLDivElement>document.getElementById("preis")).innerHTML = "Preis: 1,10 €";
+    let kugel2Bool: boolean = false;
+    let kugel3Bool: boolean = false;
+    let toppingBool: boolean = false;
+    let streuselBool: boolean = false;
+    let beilageBool: boolean = false;
+
+
     let behaelter: HTMLSelectElement = (<HTMLSelectElement>document.getElementById("behaelter"));
     behaelter.addEventListener("click", handleClickedBehaelter);
 
@@ -38,12 +45,15 @@ namespace Pruefungsaufgabe {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
                 bildImg.src = "";
                 localStorage.setItem("kugel2", "0,00€");
+                kugel2Bool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedKugel.id + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel2", "1,00€");
+                kugel2Bool = true;
             }
+            berechnePreis();
         }
     }
 
@@ -58,12 +68,15 @@ namespace Pruefungsaufgabe {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
                 bildImg.src = "";
                 localStorage.setItem("kugel3", "0,00€");
+                kugel3Bool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedKugel.id + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel3", "1,00€");
+                kugel3Bool = true;
             }
+            berechnePreis();
         }
     }
 
@@ -78,12 +91,15 @@ namespace Pruefungsaufgabe {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
                 bildImg.src = "";
                 localStorage.setItem("topping", "0,00€");
+                toppingBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedTopping.id + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("topping", "0,10€");
+                toppingBool = true;
             }
+            berechnePreis();
         }
     }
     
@@ -98,12 +114,15 @@ namespace Pruefungsaufgabe {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
                 bildImg.src = "";
                 localStorage.setItem("streusel", "0,00€");
+                streuselBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedStreusel.id + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("streusel", "0,10€");
+                streuselBool = true;
             }
+            berechnePreis();
         }
     }
 
@@ -118,20 +137,48 @@ namespace Pruefungsaufgabe {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
                 bildImg.src = "";
                 localStorage.setItem("beilage", "0,00€");
+                beilageBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedBeilage.id + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("beilage", "0,10€");
+                beilageBool = true;
             }
+            berechnePreis();
         }
+    }
+
+
+    // Preis berechnen:
+    function berechnePreis(): void {
+        let preis: number = 1.10;
+        let ausgabePreis: string;
+
+        if (kugel2Bool) {
+            preis += 1.00;
+        }
+        if (kugel3Bool) {
+            preis += 1.00;
+        }
+        if (toppingBool) {
+            preis += 0.10;
+        }
+        if (streuselBool) {
+            preis += 0.10;
+        }
+        if (beilageBool) {
+            preis += 0.10;
+        }
+        ausgabePreis = "Preis: " + preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        (<HTMLDivElement>document.getElementById("preis")).innerHTML = ausgabePreis;
+        console.log(preis);
     }
 
 
     // Ablegen der Bestellung in Datenbank
     let formData: FormData;
     document.getElementById("kaufen")?.addEventListener("click", handleSendDB);
-    document.getElementById("showDB")?.addEventListener("click", handleShowDB);
 
     async function handleSendDB(): Promise<void> {
 
@@ -140,14 +187,6 @@ namespace Pruefungsaufgabe {
         let query: URLSearchParams = new URLSearchParams(<any>formData);
         url = url + "?" + query.toString();
         await fetch(url);
-    }
-
-    async function handleShowDB(): Promise<void> {
-
-        let url: string = "https://gis-sose-2020.herokuapp.com";
-        let response1: Response = await fetch(url);
-        let response2: string = await response1.text();
-        (<HTMLDivElement>document.getElementById("output")).innerHTML = response2;
     }
 
 }

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pruefungsaufgabe = void 0;
 const Http = require("http");
-const url = require("url");
+const Url = require("url");
 const Mongo = require("mongodb");
 var Pruefungsaufgabe;
 (function (Pruefungsaufgabe) {
@@ -34,14 +34,20 @@ var Pruefungsaufgabe;
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        // Ausgabe auf Seite
         if (_request.url) {
-            let q = url.parse(_request.url, true);
-            if (q.pathname == "/send") {
-                orders.insertOne(q.query);
+            let url = Url.parse(_request.url, true);
+            let pfad = url.pathname;
+            if (pfad == "/send") {
+                orders.insertOne(url.query);
             }
-            else {
-                _response.write(JSON.stringify(await orders.find().toArray()));
+            else if (pfad == "/show") {
+                for (let key in url.query) {
+                    console.log("Hello?");
+                    _response.write(key + ": " + url.query[key] + "<br/>");
+                }
+            }
+            else if (pfad == "/deleteAll") {
+                orders.remove({ "anrede": "herr" });
             }
         }
         _response.end();

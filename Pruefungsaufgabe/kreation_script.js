@@ -1,6 +1,12 @@
 "use strict";
 var Pruefungsaufgabe;
 (function (Pruefungsaufgabe) {
+    document.getElementById("preis").innerHTML = "Preis: 1,10 €";
+    let kugel2Bool = false;
+    let kugel3Bool = false;
+    let toppingBool = false;
+    let streuselBool = false;
+    let beilageBool = false;
     let behaelter = document.getElementById("behaelter");
     behaelter.addEventListener("click", handleClickedBehaelter);
     function handleClickedBehaelter(_event) {
@@ -30,13 +36,16 @@ var Pruefungsaufgabe;
                 let bildImg = document.getElementById("kugel2Bild");
                 bildImg.src = "";
                 localStorage.setItem("kugel2", "0,00€");
+                kugel2Bool = false;
             }
             else {
                 let bildSrc = "Vorschau/" + clickedKugel.id + "kugel.png";
                 let bildImg = document.getElementById("kugel2Bild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel2", "1,00€");
+                kugel2Bool = true;
             }
+            berechnePreis();
         }
     }
     let kugel3 = document.getElementById("kugel3");
@@ -48,13 +57,16 @@ var Pruefungsaufgabe;
                 let bildImg = document.getElementById("kugel3Bild");
                 bildImg.src = "";
                 localStorage.setItem("kugel3", "0,00€");
+                kugel3Bool = false;
             }
             else {
                 let bildSrc = "Vorschau/" + clickedKugel.id + "kugel.png";
                 let bildImg = document.getElementById("kugel3Bild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel3", "1,00€");
+                kugel3Bool = true;
             }
+            berechnePreis();
         }
     }
     let topping = document.getElementById("topping");
@@ -66,13 +78,16 @@ var Pruefungsaufgabe;
                 let bildImg = document.getElementById("toppingBild");
                 bildImg.src = "";
                 localStorage.setItem("topping", "0,00€");
+                toppingBool = false;
             }
             else {
                 let bildSrc = "Vorschau/" + clickedTopping.id + ".png";
                 let bildImg = document.getElementById("toppingBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("topping", "0,10€");
+                toppingBool = true;
             }
+            berechnePreis();
         }
     }
     let streusel = document.getElementById("streusel");
@@ -84,13 +99,16 @@ var Pruefungsaufgabe;
                 let bildImg = document.getElementById("streuselBild");
                 bildImg.src = "";
                 localStorage.setItem("streusel", "0,00€");
+                streuselBool = false;
             }
             else {
                 let bildSrc = "Vorschau/" + clickedStreusel.id + ".png";
                 let bildImg = document.getElementById("streuselBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("streusel", "0,10€");
+                streuselBool = true;
             }
+            berechnePreis();
         }
     }
     let beilage = document.getElementById("beilage");
@@ -102,19 +120,44 @@ var Pruefungsaufgabe;
                 let bildImg = document.getElementById("beilageBild");
                 bildImg.src = "";
                 localStorage.setItem("beilage", "0,00€");
+                beilageBool = false;
             }
             else {
                 let bildSrc = "Vorschau/" + clickedBeilage.id + ".png";
                 let bildImg = document.getElementById("beilageBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("beilage", "0,10€");
+                beilageBool = true;
             }
+            berechnePreis();
         }
+    }
+    // Preis berechnen:
+    function berechnePreis() {
+        let preis = 1.10;
+        let ausgabePreis;
+        if (kugel2Bool) {
+            preis += 1.00;
+        }
+        if (kugel3Bool) {
+            preis += 1.00;
+        }
+        if (toppingBool) {
+            preis += 0.10;
+        }
+        if (streuselBool) {
+            preis += 0.10;
+        }
+        if (beilageBool) {
+            preis += 0.10;
+        }
+        ausgabePreis = "Preis: " + preis.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+        document.getElementById("preis").innerHTML = ausgabePreis;
+        console.log(preis);
     }
     // Ablegen der Bestellung in Datenbank
     let formData;
     document.getElementById("kaufen")?.addEventListener("click", handleSendDB);
-    document.getElementById("showDB")?.addEventListener("click", handleShowDB);
     async function handleSendDB() {
         formData = new FormData(document.forms[0]);
         let url = "https://gis-sose-2020.herokuapp.com/send";
@@ -122,11 +165,5 @@ var Pruefungsaufgabe;
         url = url + "?" + query.toString();
         await fetch(url);
     }
-    async function handleShowDB() {
-        let url = "https://gis-sose-2020.herokuapp.com";
-        let response1 = await fetch(url);
-        let response2 = await response1.text();
-        document.getElementById("output").innerHTML = response2;
-    }
 })(Pruefungsaufgabe || (Pruefungsaufgabe = {}));
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=kreation_script.js.map

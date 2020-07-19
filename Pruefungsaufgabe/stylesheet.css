@@ -1,6 +1,6 @@
 body {
     width: 1024px;
-    background-color: lavenderblush;
+    background-color: white;
     font-family: Arial;
     margin-left: auto;
     margin-right: auto;
@@ -68,7 +68,7 @@ nav div a {
 
 #body {
     margin-top: -10px;
-    background-color: rgb(231, 240, 234);
+    background-color: rgb(221, 255, 253);
     text-align: center;
     color: rgb(92, 22, 43);
 }
@@ -85,6 +85,10 @@ span {
 .punkte {
     color: white;
     font-weight: bold;
+    text-shadow: 1px  1px 1px mediumaquamarine,
+                 1px -1px 1px white,
+                 -1px  1px 1px white,
+                 -1px -1px 1px white;
 }
 
 .beschreibung {
@@ -97,13 +101,13 @@ span {
 .box {
     margin-left: 109px;
     margin-bottom: 20px;
-    background-color: rgb(251, 255, 254);
+    background-color: white;
     width: 700px;
     padding: 10px 50px 23px 50px;
     border-radius: 60px;
-    border-color: rgb(216, 169, 137);
+    border-color: rgb(216, 137, 137);
     border-style: dotted;
-    color: rgb(138, 95, 108);
+    color: rgb(110, 73, 84);
     font-size: 14px;
     letter-spacing: 0.05em;
 }
@@ -225,7 +229,7 @@ button {
 }
 
 #preis {
-    margin-left: -120px;
+    margin-left: -70px;
 }
 
 /* Klassiker */
@@ -243,7 +247,8 @@ button {
     width: 400px;
     height: 580px;
     padding-top: 10px;
-    margin-bottom: 8%;
+    margin-top: 20px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -257,6 +262,43 @@ button {
 
 .name {
     font-size: 22px;
+}
+
+/* Mitarbeiter-Login */
+input[name="nameMitarbeiter"] {
+    margin-left: -70px;
+    width: 190px;
+}
+
+#bestellungen {
+    margin-left: 230px;
+    margin-top: 10px;
+    background-color: white;
+    height: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+#bestellungen a {
+    color: rgb(121, 31, 58);
+}
+
+#deleteAll {
+    margin-left: 10px;
+}
+
+#ausgabe {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: 100px;
+}
+
+#ausgabe div {
+    width: 100px;
 }
 
 footer {
