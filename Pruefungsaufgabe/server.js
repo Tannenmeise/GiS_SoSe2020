@@ -38,7 +38,6 @@ var Pruefungsaufgabe;
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
             console.log("Pathname for this one: " + urlWithQuery.pathname);
-            console.log("The query part: " + urlWithQuery.query);
             switch (urlWithQuery.pathname) {
                 case "/send":
                     orders.insertOne(urlWithQuery.query);
