@@ -35,21 +35,40 @@ var Pruefungsaufgabe;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
-            let url = Url.parse(_request.url, true);
-            let pfad = url.pathname;
+            let urlWithQuery = Url.parse(_request.url, true);
+            //let pfad: string | null = url.pathname;
+            switch (urlWithQuery.pathname) {
+                case "/send":
+                    orders.insertOne(urlWithQuery.query);
+                    break;
+                case "/deleteAll":
+                    orders.remove({ "anrede": "herr" });
+                    orders.remove({ "anrede": "frau" });
+                    break;
+                case "/addStatusFinished":
+                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "fertig" } });
+                    break;
+                case "/addStatusDelivered":
+                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "geliefert" } });
+                    break;
+                default:
+                    _response.write(_request.url);
+            }
+            /*
             if (pfad == "/send") {
                 orders.insertOne(url.query);
-            }
-            else if (pfad == "/show") {
-                let number = await orders.countDocuments({});
-                for (let i = 0; i < number; i++) {
-                    _response.write(orders.findOne({ "anrede": "herr" }));
+            } else if (pfad == "/show") {
+                let number: number = await orders.countDocuments({});
+                for (let i: number = 0; i < number; i++) {
+                    _response.write(orders.findOne({"anrede": "herr"}));
                 }
+            } else if (pfad) {
+
+            } else if (pfad == "/deleteAll") {
+                orders.remove({"anrede": "herr"});
+                orders.remove({"anrede": "frau"});
             }
-            else if (pfad == "/deleteAll") {
-                orders.remove({ "anrede": "herr" });
-                orders.remove({ "anrede": "frau" });
-            }
+            */
         }
         _response.end();
     }
