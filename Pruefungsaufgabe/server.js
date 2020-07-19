@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pruefungsaufgabe = void 0;
 const Http = require("http");
 const Url = require("url");
+//import { ParsedUrlQuery } from "querystring";
 const Mongo = require("mongodb");
 var Pruefungsaufgabe;
 (function (Pruefungsaufgabe) {
@@ -49,9 +50,11 @@ var Pruefungsaufgabe;
                     orders.remove({ "anrede": "frau" });
                     break;
                 case "/addStatusFinished":
+                    console.log("Hello, yes. This is: /addStatusFinished");
                     orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "fertig" } });
                     break;
                 case "/addStatusDelivered":
+                    console.log("Hello, yes. This is: /addStatusDelivered");
                     orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "geliefert" } });
                     break;
                 default:
@@ -60,17 +63,5 @@ var Pruefungsaufgabe;
         }
         _response.end();
     }
-    /*
-        function erstelleHTMLAusgabe(_response: Http.ServerResponse, _query: ParsedUrlQuery): void {
-            let resultHTML: string = "";
-            orders.find().toArray();
-            
-            console.log("All orders: " + orders.find().toArray().then);
-            for (let q in _query) {
-                resultHTML += `<p>${q}: ${_query[q]}</p>`;
-            }
-            _response.write(resultHTML);
-        }
-    */
 })(Pruefungsaufgabe = exports.Pruefungsaufgabe || (exports.Pruefungsaufgabe = {}));
 //# sourceMappingURL=server.js.map

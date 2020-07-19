@@ -1,6 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
-import { ParsedUrlQuery } from "querystring";
+//import { ParsedUrlQuery } from "querystring";
 import * as Mongo from "mongodb";
 
 export namespace Pruefungsaufgabe {
@@ -60,9 +60,11 @@ export namespace Pruefungsaufgabe {
                     orders.remove({"anrede": "frau"});
                     break;
                 case "/addStatusFinished":
+                    console.log("Hello, yes. This is: /addStatusFinished");
                     orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "fertig"}});
                     break;
                 case "/addStatusDelivered":
+                    console.log("Hello, yes. This is: /addStatusDelivered");
                     orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
                     break;
                 default:
@@ -72,16 +74,4 @@ export namespace Pruefungsaufgabe {
         _response.end();
     }
 
-/*
-    function erstelleHTMLAusgabe(_response: Http.ServerResponse, _query: ParsedUrlQuery): void {
-        let resultHTML: string = "";
-        orders.find().toArray();
-        
-        console.log("All orders: " + orders.find().toArray().then);
-        for (let q in _query) {
-            resultHTML += `<p>${q}: ${_query[q]}</p>`;
-        }
-        _response.write(resultHTML);
-    }
-*/
 }
