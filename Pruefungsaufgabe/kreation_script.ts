@@ -15,7 +15,7 @@ namespace Pruefungsaufgabe {
         let clickedBehaelter: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedBehaelter.id != "behaelter") {
-            let bildSrc: string = "Vorschau/" + clickedBehaelter.id + ".png";
+            let bildSrc: string = "Vorschau/" + clickedBehaelter.value + ".png";
             let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("behaelterBild"));
             bildImg.src = bildSrc;
         }
@@ -28,7 +28,7 @@ namespace Pruefungsaufgabe {
         let clickedKugel: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedKugel.id != "kugel1") {
-            let bildSrc: string = "Vorschau/" + clickedKugel.id + "kugel.png";
+            let bildSrc: string = "Vorschau/" + clickedKugel.value + "kugel.png";
             let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel1Bild"));
             bildImg.src = bildSrc;
         }
@@ -43,11 +43,11 @@ namespace Pruefungsaufgabe {
         if (clickedKugel.id != "kugel2") {
             if (clickedKugel.id == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("kugel2", "0,00€");
                 kugel2Bool = false;
             } else {
-                let bildSrc: string = "Vorschau/" + clickedKugel.id + "kugel.png";
+                let bildSrc: string = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel2", "1,00€");
@@ -66,11 +66,11 @@ namespace Pruefungsaufgabe {
         if (clickedKugel.id != "kugel3") {
             if (clickedKugel.id == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("kugel3", "0,00€");
                 kugel3Bool = false;
             } else {
-                let bildSrc: string = "Vorschau/" + clickedKugel.id + "kugel.png";
+                let bildSrc: string = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel3", "1,00€");
@@ -89,11 +89,11 @@ namespace Pruefungsaufgabe {
         if (clickedTopping.id != "topping") {
             if (clickedTopping.id == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("topping", "0,00€");
                 toppingBool = false;
             } else {
-                let bildSrc: string = "Vorschau/" + clickedTopping.id + ".png";
+                let bildSrc: string = "Vorschau/" + clickedTopping.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("topping", "0,10€");
@@ -112,11 +112,11 @@ namespace Pruefungsaufgabe {
         if (clickedStreusel.id != "streusel") {
             if (clickedStreusel.id == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("streusel", "0,00€");
                 streuselBool = false;
             } else {
-                let bildSrc: string = "Vorschau/" + clickedStreusel.id + ".png";
+                let bildSrc: string = "Vorschau/" + clickedStreusel.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("streusel", "0,10€");
@@ -135,11 +135,11 @@ namespace Pruefungsaufgabe {
         if (clickedBeilage.id != "beilage") {
             if (clickedBeilage.id == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("beilage", "0,00€");
                 beilageBool = false;
             } else {
-                let bildSrc: string = "Vorschau/" + clickedBeilage.id + ".png";
+                let bildSrc: string = "Vorschau/" + clickedBeilage.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
                 bildImg.src = bildSrc;
                 localStorage.setItem("beilage", "0,10€");

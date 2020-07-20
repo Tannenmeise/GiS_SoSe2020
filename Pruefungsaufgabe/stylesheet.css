@@ -159,17 +159,17 @@ select {
 #kugel2Bild {
     position: absolute;
     z-index: 0;
-    margin-left: 1px;
-    margin-top: -100px;
-    scale: 0.8;
+    margin-left: 18px;
+    margin-top: -84px;
+    width: 140px
 }
 
 #kugel3Bild {
     position: absolute;
     z-index: 0;
-    margin-left: 130px;
-    margin-top: -100px;
-    scale: 0.8;
+    margin-left: 140px;
+    margin-top: -84px;
+    width: 140px;
 }
 
 #toppingBild {
@@ -218,18 +218,17 @@ option {
     color: black;
 }
 
+#preis, #kaufen {
+    margin-left: -70px;
+}
+
 button {
     font-size: 16px;
     background-color: white;
     color: rgb(121, 31, 58);
     padding: 5px 15px 5px 15px;
     border-radius: 10px;
-    margin-left: -72px;
     margin-bottom: 10px;
-}
-
-#preis {
-    margin-left: -70px;
 }
 
 /* Klassiker */
@@ -264,12 +263,17 @@ button {
     font-size: 22px;
 }
 
+.meme {
+    width: 300px;
+}
+
 /* Mitarbeiter-Login */
 input[name="nameMitarbeiter"] {
     margin-left: -70px;
     width: 190px;
 }
 
+/* Bestellungen */
 #bestellungen {
     margin-left: 230px;
     margin-top: 10px;
@@ -290,17 +294,32 @@ input[name="nameMitarbeiter"] {
     margin-left: 10px;
 }
 
-#ausgabe {
+.flexcontainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
-    width: 100px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    flex-direction: row;
+    width: 965px;
+    margin-left: 75px;
 }
 
-#ausgabe div {
-    width: 100px;
+.flexcontainer div {
+    width: 320px;
+    text-align: left;
 }
 
+.flexcontainer div p {
+    line-height: 0px;
+    margin-left: 3px;
+}
+
+#finished, #delivered, #delete {
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+/* Footer */
 footer {
     background-color: rgb(86, 119, 114);
     color: whitesmoke;
@@ -310,4 +329,239 @@ footer {
 
 a {
     color: white;
+}
+
+/* tablet iPad*/
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+
+    body {
+        width: 768px;
+    }
+
+    #banner span {
+        margin-left: 154px;
+    }
+
+    nav div {
+        font-size: 19px;
+        margin-left: -88px;
+    }
+
+    nav div a {
+        margin-left: 100px;
+    }
+
+    .beschreibung {
+        font-size: 18px;
+    }
+
+    .box {
+        font-size: 18px;
+        margin-left: 10px;
+        width: 643px;
+    }
+
+    #vorschau {
+        margin-left: 400px;
+    }
+
+    form {
+        margin-left: 10px;
+    }
+
+    #adresse {
+        margin-left: 100px;
+    }
+
+    #klassiker {
+        width: 700px;
+        margin-left: 28px;
+    }
+
+    #klassiker > div {
+        height: 610px;
+    }
+
+    footer {
+        font-size: 18px;
+    }
+
+    #bestellungen {
+        font-size: 20px;
+        margin-left: 80px;
+    }
+}
+
+/* for smaller web-screen */
+@media screen and (min-width: 600px) and (max-width: 767px) {
+
+    body {
+        width: 600px;
+    }
+
+    #body {
+        margin-top: 140px;
+    }
+
+    #banner span {
+        margin-left: 70px;
+    }
+
+    nav {
+        height: 190px;
+    }
+
+    nav div {
+        font-size: 19px;
+        margin-left: -88px;
+        width: 300px;
+        line-height: 40px;
+    }
+
+    nav div a {
+        margin-left: 100px;
+    }
+
+    .beschreibung {
+        font-size: 18px;
+    }
+
+    .box {
+        font-size: 18px;
+        margin-left: 0px;
+        width: 494px;
+    }
+
+    #vorschau {
+        margin-left: 300px;
+    }
+
+    form {
+        margin-left: 4px;
+    }
+
+    #adresse {
+        margin-left: 57px;
+    }
+
+    #preis, #kaufen {
+        margin-left: 0px;
+    }
+
+    #klassiker {
+        width: 540px;
+        margin-left: 24px;
+    }
+
+    #klassiker > div {
+        height: 610px;
+    }
+
+    footer {
+        font-size: 18px;
+    }
+
+    #bestellungen {
+        font-size: 20px;
+        margin-left: 1px;
+    }
+}
+
+/* smartphone iPhone 6/7/8 */
+@media screen and (max-width: 600px) {
+
+    body {
+        width: 375px;
+    }
+
+    #body {
+        margin-top: 130px;
+    }
+
+    #banner img {
+        visibility: hidden;
+    }
+
+    #banner span {
+        margin-left: -110px;
+        margin-top: 8px;
+        position: absolute;
+        height: 50px;
+        font-size: 36px;
+    }
+
+    nav {
+        height: 190px;
+    }
+
+    nav div {
+        font-size: 19px;
+        margin-left: -88px;
+        width: 300px;
+        line-height: 40px;
+    }
+
+    nav div a {
+        margin-left: 100px;
+    }
+
+    .beschreibung {
+        font-size: 18px;
+    }
+
+    .box {
+        font-size: 17px;
+        margin-left: 0px;
+        width: 269px;
+    }
+
+    #klassiker {
+        width: 340px;
+        margin-left: 20px;
+    }
+
+    #vorschau {
+        margin-left: 35px;
+        margin-top: 200px;
+    }
+
+    form {
+        margin-top: 440px;
+        margin-left: 38px;
+        margin-bottom: -100px;
+    }
+
+    table {
+        margin-bottom: 20px;
+    }
+
+    #adresse {
+        margin-left: -34px;
+        margin-bottom: 200px;
+    }
+
+    #adresse input, #adresse select {
+        width: 90px;
+    }
+
+    #preis, #kaufen {
+        margin-left: 0px;
+        margin-top: -160px;
+    }
+
+    #klassiker > div {
+        height: 610px;
+    }
+
+    footer {
+        font-size: 18px;
+        margin-top: 110px;
+    }
+
+    #bestellungen {
+        font-size: 18px;
+        margin-left: 240px;
+        position: absolute;
+        margin-top: 10px;
+    }
 }

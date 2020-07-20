@@ -12,7 +12,7 @@ var Pruefungsaufgabe;
     function handleClickedBehaelter(_event) {
         let clickedBehaelter = _event.target;
         if (clickedBehaelter.id != "behaelter") {
-            let bildSrc = "Vorschau/" + clickedBehaelter.id + ".png";
+            let bildSrc = "Vorschau/" + clickedBehaelter.value + ".png";
             let bildImg = document.getElementById("behaelterBild");
             bildImg.src = bildSrc;
         }
@@ -22,7 +22,7 @@ var Pruefungsaufgabe;
     function handleClickedKugel1(_event) {
         let clickedKugel = _event.target;
         if (clickedKugel.id != "kugel1") {
-            let bildSrc = "Vorschau/" + clickedKugel.id + "kugel.png";
+            let bildSrc = "Vorschau/" + clickedKugel.value + "kugel.png";
             let bildImg = document.getElementById("kugel1Bild");
             bildImg.src = bildSrc;
         }
@@ -34,12 +34,12 @@ var Pruefungsaufgabe;
         if (clickedKugel.id != "kugel2") {
             if (clickedKugel.id == "nichts") {
                 let bildImg = document.getElementById("kugel2Bild");
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("kugel2", "0,00€");
                 kugel2Bool = false;
             }
             else {
-                let bildSrc = "Vorschau/" + clickedKugel.id + "kugel.png";
+                let bildSrc = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg = document.getElementById("kugel2Bild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel2", "1,00€");
@@ -55,12 +55,12 @@ var Pruefungsaufgabe;
         if (clickedKugel.id != "kugel3") {
             if (clickedKugel.id == "nichts") {
                 let bildImg = document.getElementById("kugel3Bild");
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("kugel3", "0,00€");
                 kugel3Bool = false;
             }
             else {
-                let bildSrc = "Vorschau/" + clickedKugel.id + "kugel.png";
+                let bildSrc = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg = document.getElementById("kugel3Bild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("kugel3", "1,00€");
@@ -76,12 +76,12 @@ var Pruefungsaufgabe;
         if (clickedTopping.id != "topping") {
             if (clickedTopping.id == "nichts") {
                 let bildImg = document.getElementById("toppingBild");
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("topping", "0,00€");
                 toppingBool = false;
             }
             else {
-                let bildSrc = "Vorschau/" + clickedTopping.id + ".png";
+                let bildSrc = "Vorschau/" + clickedTopping.value + ".png";
                 let bildImg = document.getElementById("toppingBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("topping", "0,10€");
@@ -97,12 +97,12 @@ var Pruefungsaufgabe;
         if (clickedStreusel.id != "streusel") {
             if (clickedStreusel.id == "nichts") {
                 let bildImg = document.getElementById("streuselBild");
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("streusel", "0,00€");
                 streuselBool = false;
             }
             else {
-                let bildSrc = "Vorschau/" + clickedStreusel.id + ".png";
+                let bildSrc = "Vorschau/" + clickedStreusel.value + ".png";
                 let bildImg = document.getElementById("streuselBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("streusel", "0,10€");
@@ -118,12 +118,12 @@ var Pruefungsaufgabe;
         if (clickedBeilage.id != "beilage") {
             if (clickedBeilage.id == "nichts") {
                 let bildImg = document.getElementById("beilageBild");
-                bildImg.src = "";
+                bildImg.src = "Vorschau/nichts.png";
                 localStorage.setItem("beilage", "0,00€");
                 beilageBool = false;
             }
             else {
-                let bildSrc = "Vorschau/" + clickedBeilage.id + ".png";
+                let bildSrc = "Vorschau/" + clickedBeilage.value + ".png";
                 let bildImg = document.getElementById("beilageBild");
                 bildImg.src = bildSrc;
                 localStorage.setItem("beilage", "0,10€");
