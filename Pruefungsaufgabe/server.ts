@@ -1,6 +1,5 @@
 import * as Http from "http";
 import * as Url from "url";
-//import { ParsedUrlQuery } from "querystring";
 import * as Mongo from "mongodb";
 
 export namespace Pruefungsaufgabe {
@@ -46,7 +45,6 @@ export namespace Pruefungsaufgabe {
         
         if (_request.url) {
             let urlWithQuery: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            console.log("Pathname for this one: " + urlWithQuery.pathname);
             let id: string = <string>urlWithQuery.query["id"];
             let objID: Mongo.ObjectId = new Mongo.ObjectId(id);
 
@@ -58,17 +56,12 @@ export namespace Pruefungsaufgabe {
                     _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
                 case "/deleteAll":
-                    orders.remove({"anrede": "herr"});
-                    orders.remove({"anrede": "frau"});
+                    orders.deleteMany({});
                     break;
                 case "/addStatusFinished":
-                    console.log("Hello, yes. This is: /addStatusFinished");
-                    orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "fertig"}});
                     await orders.updateOne({"_id": objID}, {$set: {status: "fertig"}});
                     break;
                 case "/addStatusDelivered":
-                    console.log("Hello, yes. This is: /addStatusDelivered");
-                    //orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
                     await orders.updateOne({"_id": objID}, {$set: {status: "geliefert"}});
                     break;
                 case "/removeOne":
