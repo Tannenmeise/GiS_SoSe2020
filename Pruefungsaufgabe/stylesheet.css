@@ -268,8 +268,13 @@ button {
 }
 
 /* Mitarbeiter-Login */
+#anmelden {
+    margin-top: 45px;
+    margin-left: 20px;
+}
+
 input[name="nameMitarbeiter"] {
-    margin-left: -70px;
+    margin-left: -10px;
     width: 190px;
 }
 
@@ -382,6 +387,11 @@ a {
         height: 610px;
     }
 
+    .flexcontainer {
+        width: 650px;
+        margin-left: 100px;
+    }
+
     footer {
         font-size: 18px;
     }
@@ -455,6 +465,17 @@ a {
 
     #klassiker > div {
         height: 610px;
+    }
+
+    .flexcontainer {
+        width: 650px;
+        margin-left: 18px;
+    }
+
+    input[name="nameMitarbeiter"] {
+        font-size: 18px;
+        width: 240px;
+        margin-left: -20px;
     }
 
     footer {
@@ -551,6 +572,26 @@ a {
 
     #klassiker > div {
         height: 610px;
+    }
+
+    .flexcontainer {
+        width: 300px;
+        margin-left: 40px;
+    }
+
+    #finished, #delivered, #delete {
+        font-size: 14px;
+    }
+
+    #anmelden {
+        margin-top: 45px;
+        margin-left: 20px;
+    }
+
+    input[name="nameMitarbeiter"] {
+        font-size: 18px;
+        width: 240px;
+        margin-left: -20px;
     }
 
     footer {
