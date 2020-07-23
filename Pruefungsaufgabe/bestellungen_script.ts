@@ -19,7 +19,6 @@ namespace Pruefungsaufgabe {
         status: string;
     }
 
-
     document.getElementById("ihrName")!.innerHTML = "" + localStorage.getItem("mitarbeiter");
 
     document.getElementById("showDB")?.addEventListener("click", handleShowDB);
@@ -33,7 +32,7 @@ namespace Pruefungsaufgabe {
         let bestellungen: Bestellung[] = await response.json();
         let output: HTMLDivElement = <HTMLDivElement>document.getElementById("ausgabeB");
         output.innerHTML = "";
-        
+
         for (let b of bestellungen) {
             output.appendChild(erstelleBestellungBlock(b));
         }
@@ -131,7 +130,7 @@ namespace Pruefungsaufgabe {
         return bestellungDiv;
     }
 
-
+    // Eine Bestellung löschen
     async function removeOne(_e: Event): Promise<void> {
 
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
@@ -141,7 +140,7 @@ namespace Pruefungsaufgabe {
         handleShowDB(_e);
     }
 
-
+    // Status einer Bestellung auf "fertig" setzen
     async function addStatusFinished(_e: Event): Promise<void> {
 
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
@@ -151,7 +150,7 @@ namespace Pruefungsaufgabe {
         handleShowDB(_e);
     }
 
-
+    // Status einer Bestellung auf "geliefert" setzen
     async function addStatusDelivered(_e: Event): Promise<void> {
 
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
@@ -161,11 +160,11 @@ namespace Pruefungsaufgabe {
         handleShowDB(_e);
     }
 
-
+    // Alle Bestellungen löschen
     async function handleDeleteAll(): Promise<void> {
 
         await fetch("https://gis-sose-2020.herokuapp.com/deleteAll");
-        //location.reload();
+        location.reload();
     }
 
 }

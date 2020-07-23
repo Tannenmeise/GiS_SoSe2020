@@ -1,5 +1,6 @@
 namespace Pruefungsaufgabe {
 
+    // Für Preisberechnung
     (<HTMLDivElement>document.getElementById("preis")).innerHTML = "Preis: 1,10 €";
     let kugel2Bool: boolean = false;
     let kugel3Bool: boolean = false;
@@ -7,7 +8,7 @@ namespace Pruefungsaufgabe {
     let streuselBool: boolean = false;
     let beilageBool: boolean = false;
 
-
+    // Eiskreation: Vorschau
     let behaelter: HTMLSelectElement = (<HTMLSelectElement>document.getElementById("behaelter"));
     behaelter.addEventListener("click", handleClickedBehaelter);
 
@@ -41,16 +42,14 @@ namespace Pruefungsaufgabe {
         let clickedKugel: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedKugel.id != "kugel2") {
-            if (clickedKugel.id == "nichts") {
+            if (clickedKugel.value == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
                 bildImg.src = "Vorschau/nichts.png";
-                localStorage.setItem("kugel2", "0,00€");
                 kugel2Bool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel2Bild"));
                 bildImg.src = bildSrc;
-                localStorage.setItem("kugel2", "1,00€");
                 kugel2Bool = true;
             }
             berechnePreis();
@@ -64,16 +63,14 @@ namespace Pruefungsaufgabe {
         let clickedKugel: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedKugel.id != "kugel3") {
-            if (clickedKugel.id == "nichts") {
+            if (clickedKugel.value == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
                 bildImg.src = "Vorschau/nichts.png";
-                localStorage.setItem("kugel3", "0,00€");
                 kugel3Bool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedKugel.value + "kugel.png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("kugel3Bild"));
                 bildImg.src = bildSrc;
-                localStorage.setItem("kugel3", "1,00€");
                 kugel3Bool = true;
             }
             berechnePreis();
@@ -87,22 +84,20 @@ namespace Pruefungsaufgabe {
         let clickedTopping: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedTopping.id != "topping") {
-            if (clickedTopping.id == "nichts") {
+            if (clickedTopping.value == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
                 bildImg.src = "Vorschau/nichts.png";
-                localStorage.setItem("topping", "0,00€");
                 toppingBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedTopping.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("toppingBild"));
                 bildImg.src = bildSrc;
-                localStorage.setItem("topping", "0,10€");
                 toppingBool = true;
             }
             berechnePreis();
         }
     }
-    
+
     let streusel: HTMLSelectElement = (<HTMLSelectElement>document.getElementById("streusel"));
     streusel.addEventListener("click", handleClickedStreusel);
 
@@ -110,16 +105,14 @@ namespace Pruefungsaufgabe {
         let clickedStreusel: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedStreusel.id != "streusel") {
-            if (clickedStreusel.id == "nichts") {
+            if (clickedStreusel.value == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
                 bildImg.src = "Vorschau/nichts.png";
-                localStorage.setItem("streusel", "0,00€");
                 streuselBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedStreusel.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("streuselBild"));
                 bildImg.src = bildSrc;
-                localStorage.setItem("streusel", "0,10€");
                 streuselBool = true;
             }
             berechnePreis();
@@ -133,22 +126,19 @@ namespace Pruefungsaufgabe {
         let clickedBeilage: HTMLSelectElement = <HTMLSelectElement>_event.target;
 
         if (clickedBeilage.id != "beilage") {
-            if (clickedBeilage.id == "nichts") {
+            if (clickedBeilage.value == "nichts") {
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
                 bildImg.src = "Vorschau/nichts.png";
-                localStorage.setItem("beilage", "0,00€");
                 beilageBool = false;
             } else {
                 let bildSrc: string = "Vorschau/" + clickedBeilage.value + ".png";
                 let bildImg: HTMLImageElement = (<HTMLImageElement>document.getElementById("beilageBild"));
                 bildImg.src = bildSrc;
-                localStorage.setItem("beilage", "0,10€");
                 beilageBool = true;
             }
             berechnePreis();
         }
     }
-
 
     // Preis berechnen:
     function berechnePreis(): void {
@@ -174,8 +164,7 @@ namespace Pruefungsaufgabe {
         (<HTMLDivElement>document.getElementById("preis")).innerHTML = ausgabePreis;
     }
 
-
-    // Ablegen der Bestellung in Datenbank
+    // Speichern der Bestellung in die Datenbank
     let formData: FormData;
     document.getElementById("kaufen")?.addEventListener("click", handleSendDB);
 

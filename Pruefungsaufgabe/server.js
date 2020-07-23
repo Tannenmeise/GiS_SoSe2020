@@ -3,14 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Pruefungsaufgabe = void 0;
 const Http = require("http");
 const Url = require("url");
-//import { ParsedUrlQuery } from "querystring";
 const Mongo = require("mongodb");
 var Pruefungsaufgabe;
 (function (Pruefungsaufgabe) {
     let orders;
     let port = Number(process.env.PORT);
-    if (!port)
+    if (!port) {
         port = 8100;
+    }
     let databaseUrl = "mongodb+srv://Testuser:topsecret@gis-ist-geil.dvjdj.mongodb.net/Eisdiele?retryWrites=true&w=majority";
     startServer(port);
     connectToDatabase(databaseUrl);
@@ -37,35 +37,30 @@ var Pruefungsaufgabe;
         _response.setHeader("Access-Control-Allow-Origin", "*");
         if (_request.url) {
             let urlWithQuery = Url.parse(_request.url, true);
-            console.log("Pathname for this one: " + urlWithQuery.pathname);
             let id = urlWithQuery.query["id"];
             let objID = new Mongo.ObjectId(id);
             switch (urlWithQuery.pathname) {
-                case "/send":
+                case "/send": // Bestellung absenden
                     orders.insertOne(urlWithQuery.query);
                     break;
-                case "/show":
+                case "/show": // Bestellungen anzeigen
                     _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
-                case "/deleteAll":
-                    orders.remove({ "anrede": "herr" });
-                    orders.remove({ "anrede": "frau" });
+                case "/deleteAll": // Alle Bestellungen löschen
+                    orders.deleteMany({});
                     break;
-                case "/addStatusFinished":
-                    console.log("Hello, yes. This is: /addStatusFinished");
-                    orders.updateOne({ _id: urlWithQuery.query }, { $set: { status: "fertig" } });
+                case "/addStatusFinished": // Status einer Bestellung auf "fertig" setzen
                     await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
                     break;
-                case "/addStatusDelivered":
-                    console.log("Hello, yes. This is: /addStatusDelivered");
-                    //orders.updateOne({_id: urlWithQuery.query}, {$set: {status: "geliefert"}});
+                case "/addStatusDelivered": // Status einer Bestellung auf "geliefert" setzen
                     await orders.updateOne({ "_id": objID }, { $set: { status: "geliefert" } });
                     break;
-                case "/removeOne":
+                case "/removeOne": // Eine bestimmte Bestellung löschen
                     await orders.deleteOne({ "_id": objID });
                     break;
                 default:
-                //_response.write(_request.url);
+                    _response.write(_request.url);
+                    console.log("Pathname didn't match up with any of the cases.");
             }
         }
         _response.end();

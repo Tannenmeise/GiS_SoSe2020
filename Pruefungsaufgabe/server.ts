@@ -7,8 +7,9 @@ export namespace Pruefungsaufgabe {
     let orders: Mongo.Collection;
 
     let port: number = Number(process.env.PORT);
-    if (!port)
+    if (!port) {
         port = 8100;
+    }
 
     let databaseUrl: string = "mongodb+srv://Testuser:topsecret@gis-ist-geil.dvjdj.mongodb.net/Eisdiele?retryWrites=true&w=majority";
 
@@ -16,7 +17,7 @@ export namespace Pruefungsaufgabe {
     connectToDatabase(databaseUrl);
 
     function startServer(_port: number | string): void {
-        
+
         let server: Http.Server = Http.createServer();
         console.log("server starting, port:" + _port);
         server.addListener("request", handleRequest);
@@ -38,37 +39,38 @@ export namespace Pruefungsaufgabe {
     }
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
-        
+
         console.log("I hear voices!");
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        
+
         if (_request.url) {
             let urlWithQuery: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
             let id: string = <string>urlWithQuery.query["id"];
             let objID: Mongo.ObjectId = new Mongo.ObjectId(id);
 
             switch (urlWithQuery.pathname) {
-                case "/send":
+                case "/send":   // Bestellung absenden
                     orders.insertOne(urlWithQuery.query);
                     break;
-                case "/show":
+                case "/show":   // Bestellungen anzeigen
                     _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
-                case "/deleteAll":
+                case "/deleteAll":   // Alle Bestellungen löschen
                     orders.deleteMany({});
                     break;
-                case "/addStatusFinished":
-                    await orders.updateOne({"_id": objID}, {$set: {status: "fertig"}});
+                case "/addStatusFinished":   // Status einer Bestellung auf "fertig" setzen
+                    await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
                     break;
-                case "/addStatusDelivered":
-                    await orders.updateOne({"_id": objID}, {$set: {status: "geliefert"}});
+                case "/addStatusDelivered":   // Status einer Bestellung auf "geliefert" setzen
+                    await orders.updateOne({ "_id": objID }, { $set: { status: "geliefert" } });
                     break;
-                case "/removeOne":
-                    await orders.deleteOne({"_id": objID});
+                case "/removeOne":   // Eine bestimmte Bestellung löschen
+                    await orders.deleteOne({ "_id": objID });
                     break;
                 default:
-                    //_response.write(_request.url);
+                    _response.write(_request.url);
+                    console.log("Pathname didn't match up with any of the cases.");
             }
         }
         _response.end();

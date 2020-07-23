@@ -68,45 +68,6 @@ namespace Pruefungsaufgabe {
             beilageImg.src = "Vorschau/" + klassikerArray[i].beilage + ".png";
             beilageImg.id = "beilageBild";
             document.getElementById("klassikerBild" + i)?.appendChild(beilageImg);
-            /*
-            //behaelter
-            let behaelterImg: HTMLImageElement = document.createElement("img");
-            behaelterImg.src = "Vorschau/" + klassikerArray[i].behaelter + ".png";
-            behaelterImg.id = "behaelterBild";
-            document.getElementById("klassiker" + i)?.appendChild(behaelterImg);
-            //kugel1
-            let kugel1Img: HTMLImageElement = document.createElement("img");
-            kugel1Img.src = "Vorschau/" + klassikerArray[i].kugel1 + "kugel.png";
-            kugel1Img.id = "kugel1Bild";
-            document.getElementById("klassiker" + i)?.appendChild(kugel1Img);
-            //kugel2
-            let kugel2Img: HTMLImageElement = document.createElement("img");
-            kugel2Img.src = "Vorschau/" + klassikerArray[i].kugel2 + "kugel.png";
-            kugel2Img.id = "kugel2Bild";
-            document.getElementById("klassiker" + i)?.appendChild(kugel2Img);
-            //kugel3
-            let kugel3Img: HTMLImageElement = document.createElement("img");
-            kugel3Img.src = "Vorschau/" + klassikerArray[i].kugel3 + "kugel.png";
-            kugel3Img.id = "kugel3Bild";
-            document.getElementById("klassiker" + i)?.appendChild(kugel3Img);
-            //topping
-            let toppingImg: HTMLImageElement = document.createElement("img");
-            toppingImg.src = "Vorschau/" + klassikerArray[i].topping + ".png";
-            toppingImg.id = "toppingBild";
-            document.getElementById("klassiker" + i)?.appendChild(toppingImg);
-            //streusel
-            let streuselImg: HTMLImageElement = document.createElement("img");
-            streuselImg.src = "Vorschau/" + klassikerArray[i].streusel + ".png";
-            streuselImg.id = "streuselBild";
-            document.getElementById("klassiker" + i)?.appendChild(streuselImg);
-            //beilage
-            let beilageImg: HTMLImageElement = document.createElement("img");
-            beilageImg.src = "Vorschau/" + klassikerArray[i].beilage + ".png";
-            beilageImg.id = "beilageBild";
-            document.getElementById("klassiker" + i)?.appendChild(beilageImg);
-            */
         }
     }
-
-
 }

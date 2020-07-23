@@ -85,6 +85,7 @@ var Pruefungsaufgabe;
         bestellungDiv.appendChild(removeBtn);
         return bestellungDiv;
     }
+    // Eine Bestellung löschen
     async function removeOne(_e) {
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
@@ -92,6 +93,7 @@ var Pruefungsaufgabe;
         await fetch("https://gis-sose-2020.herokuapp.com/removeOne?id=" + idToRemove);
         handleShowDB(_e);
     }
+    // Status einer Bestellung auf "fertig" setzen
     async function addStatusFinished(_e) {
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
@@ -99,6 +101,7 @@ var Pruefungsaufgabe;
         await fetch("https://gis-sose-2020.herokuapp.com/addStatusFinished?id=" + idToChange);
         handleShowDB(_e);
     }
+    // Status einer Bestellung auf "geliefert" setzen
     async function addStatusDelivered(_e) {
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
@@ -106,9 +109,10 @@ var Pruefungsaufgabe;
         await fetch("https://gis-sose-2020.herokuapp.com/addStatusDelivered?id=" + idToChange);
         handleShowDB(_e);
     }
+    // Alle Bestellungen löschen
     async function handleDeleteAll() {
         await fetch("https://gis-sose-2020.herokuapp.com/deleteAll");
-        //location.reload();
+        location.reload();
     }
 })(Pruefungsaufgabe || (Pruefungsaufgabe = {}));
 //# sourceMappingURL=bestellungen_script.js.map
