@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Pruefungsaufgabe/server.js remote"
+    "start": "node Aufgabe07/server.js remote"
   },
   "repository": {
     "type": "git",
